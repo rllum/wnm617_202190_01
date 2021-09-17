@@ -1,0 +1,69 @@
+body{
+	background-color: #154348;
+}
+
+
+
+h1, h2, h3{
+	font-family: Times New Roman;
+}
+
+.title{
+	font-family: Arial;
+	color: #154348;
+}
+
+nav a{
+	color: #154348;
+	background-color: #b7a894;
+}
+
+.header-container,
+.main aside,
+.footer-container{
+	background-color: #b7a894;
+	border: 10px double #fff;
+	box-shadow: 0 5px 10px #6ca9a1;
+	color: #154348;
+}
+
+.main aside{
+	margin-top: 25%;
+	font-size: smaller;
+}
+article > header{
+	color: #6ca9a1;
+}
+
+section:nth-child(2){
+	color: #b7a894;
+	text-align: right;
+} 
+
+section:nth-child(3){
+	color: #eaa27c;
+	
+}
+
+
+article > footer{
+	color: #b66132;
+	text-align: right;
+}
+
+/*aside{
+	font-size: smaller;
+}
+*/
+
+.main.wrapper.clearfix{
+	width: 70%;
+}
+
+.footer-container h3{
+	font-family: Arial;
+	font-size: xx-large;
+	color: #154348;
+}
+
+

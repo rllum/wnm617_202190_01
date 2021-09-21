@@ -14,8 +14,12 @@ h1, h2, h3{
 }
 
 nav a{
-	color: #154348;
+	color: white;
 	background-color: #b7a894;
+}
+
+nav a:hover{
+	color: #154348;
 }
 
 .header-container,
@@ -33,22 +37,25 @@ nav a{
 }
 article > header{
 	color: #6ca9a1;
+	background-color: white;
 }
 
 section:nth-child(2){
 	color: #b7a894;
 	text-align: right;
+	background-color: black;
 } 
 
 section:nth-child(3){
-	color: #eaa27c;
-	
+	color: #eaa27c;	
+	background-color: white;
 }
 
 
 article > footer{
 	color: #b66132;
 	text-align: right;
+	background-color: black;
 }
 
 /*aside{

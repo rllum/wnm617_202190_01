@@ -9,6 +9,7 @@
 - http://rachellauren.work/aau/wnm617/profile/index.html
 - http://rachellauren.work/aau/wnm617/lum.rachel/initializr/index.html
 - http://rachellauren.work/aau/wnm617/lum.rachel/demo/jquery.html
+- http://rachellauren.work/aau/wnm617/lum.rachel/demo/jquerymobile.html
 
 
 - Take note of how markdown works

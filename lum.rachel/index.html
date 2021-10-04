@@ -1,16 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- <link rel="stylesheet" type="text/css" href="css/styleguide.css"> -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WOOF! Dog Tracker</title>
+
+	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<script src="lib/js/jquery-2.2.4.min.js"></script>
+
+	<script src="js/app.js"></script>
+
+	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
+<!-- sign in page -->	
+	<section data-role="page" id="page-signin">
+		<div data-role="main">
+			<form data-ajax="false" class="form" id="signin-form">
+				<div class="form-control">
+					<input class="form-input" type="text" id="signin-username" data-role="none">
+				</div>
+				<div class="form-control">
+					<input class="form-input" type="password" id="signin-password" data-role="none">
+				</div>
+				<div class="form-control">
+					<a href="#page-map">Sign In</a>
+				</div>
+			</form>
+		</div>
+	</section>
+<!-- map page -->
+		<section data-role="page" id="page-map">
+		<div data-role="main">
+			MAP
+		</div>
+		<footer data-role="footer">
+			<ul>
+				<li><a href="#page-map">Map</a></li>
+				<li><a href="#page-list">List</a></li>
+				<li><a href="#page-user-profile">Profile</a></li>
+			</ul>
+		</footer>
+	</section>
+<!-- list page -->
+	<section data-role="page" id="page-list">
+		<div data-role="main">
+			<ul>
+				<li><a href="#page-dog-profile">Dog 1</a></li>
+				<li><a href="#page-dog-profile">Dog 2</a></li>
+				<li><a href="#page-dog-profile">Dog 3</a></li>
+				<li><a href="#page-dog-profile">Dog 4</a></li>
+				<li><a href="#page-dog-profile">Dog 5</a></li>
+				<li><a href="#page-dog-profile">Dog 6</a></li>
+				<li><a href="#page-dog-profile">Dog 7</a></li>
+				<li><a href="#page-dog-profile">Dog 8</a></li>
+				<li><a href="#page-dog-profile">Dog 9</a></li>
+				<li><a href="#page-dog-profile">Dog 10</a></li>
+			</ul>
+		</div>
+		<a href="#page-add-dog-profile">Add</a>
+		<footer data-role="footer">
+			<ul>
+				<li><a href="#page-map">Map</a></li>
+				<li><a href="#page-list">List</a></li>
+				<li><a href="#page-user-profile">Profile</a></li>
+			</ul>
+		</footer>
+	</section>
+<!-- user profile page -->
+	<section data-role="page" id="page-user-profile">
+		<div data-role="main">
+			USER
+		</div>
+		<a href="#page-edit-user-profile">Edit</a>
+		<a href="#page-change-user-password">Change Password</a>
+		<footer data-role="footer">
+			<ul>
+				<li><a href="#page-map">Map</a></li>
+				<li><a href="#page-list">List</a></li>
+				<li><a href="#page-user-profile">Profile</a></li>
+			</ul>
+		</footer>
+	</section>
+<!-- dog profile page -->
+	<section data-role="page" id="page-dog-profile">
+		<header data-role="header">
+			<h1>Dog!</h1>
+			<a href="#page-edit-dog-profile">Edit</a>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+			</ul>
+		</header>
+		<div data-role="main">
+			DOG
+		</div>
+	</section>
 
-	<h1 style=" max-width: 800px;
-  margin-right: auto;
-  margin-left: auto;">Welcome!</h1>
-		<p style=" max-width: 800px;
-  margin-right: auto;
-  margin-left: auto;">This is the index page for WNM 617</p>
+<!-- edit user profile page -->
+	<section data-role="page" id="page-edit-user-profile">
+		<header data-role="header">
+			<h1>EDIT USER</h1>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+			</ul>
+		</header>
+		<div data-role="main">
+			Edit user profile information
+		</div>
+	</section>
+
+<!-- change user password page -->
+	<section data-role="page" id="page-change-user-password">
+		<header data-role="header">
+			<h1>CHANGE PASSWORD</h1>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+			</ul>
+		</header>
+		<div data-role="main">
+			Change user password
+		</div>
+	</section>
+
+<!-- edit dog profile page -->
+	<section data-role="page" id="page-edit-dog-profile">
+		<header data-role="header">
+			<h1>EDIT DOG</h1>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+			</ul>
+		</header>
+		<div data-role="main">
+			Edit dog profile information
+		</div>
+	</section>
+
+<!-- add dog profile page -->
+	<section data-role="page" id="page-add-dog-profile">
+		<header data-role="header">
+			<h1>ADD DOG</h1>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+			</ul>
+		</header>
+		<div data-role="main">
+			Add dog profile information
+		</div>
+	</section>
+
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

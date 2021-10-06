@@ -17,22 +17,23 @@
 <body>
 <!-- sign in page -->	
 	<section data-role="page" id="page-signin">
-		<div data-role="main">
-			<form data-ajax="false" class="form" id="signin-form">
+		<div data-role="main" class="display-flex flex-vertical">
+			<div class="flex-stretch"></div>
+			<form data-ajax="false" class="form" id="signin-form" style="padding:10px">
 				<div class="form-control">
-					<input class="form-input" type="text" id="signin-username" data-role="none">
+					<input class="form-input" type="text" id="signin-username" data-role="none" placeholder="Username">
 				</div>
 				<div class="form-control">
-					<input class="form-input" type="password" id="signin-password" data-role="none">
+					<input class="form-input" type="password" id="signin-password" data-role="none" placeholder="Password">
 				</div>
 				<div class="form-control">
-					<a href="#page-map">Sign In</a>
+					<a href="#page-map" class="form-button">Sign In</a>
 				</div>
 			</form>
 		</div>
 	</section>
 <!-- map page -->
-		<section data-role="page" id="page-map">
+		<section data-role="page" id="page-map" style="background-image: url(img/map.png);">
 		<div data-role="main">
 			MAP
 		</div>
@@ -46,6 +47,9 @@
 	</section>
 <!-- list page -->
 	<section data-role="page" id="page-list">
+		<div class="form-control">
+			<a href="#page-add-dog-profile" class="form-button">Add</a>
+		</div>
 		<div data-role="main">
 			<ul>
 				<li><a href="#page-dog-profile">Dog 1</a></li>
@@ -60,7 +64,6 @@
 				<li><a href="#page-dog-profile">Dog 10</a></li>
 			</ul>
 		</div>
-		<a href="#page-add-dog-profile">Add</a>
 		<footer data-role="footer">
 			<ul>
 				<li><a href="#page-map">Map</a></li>
@@ -74,8 +77,10 @@
 		<div data-role="main">
 			USER
 		</div>
-		<a href="#page-edit-user-profile">Edit</a>
-		<a href="#page-change-user-password">Change Password</a>
+		<div class="form-control">
+			<a href="#page-edit-user-profile" class="form-button" style="margin-bottom: 10px">Edit</a>
+			<a href="#page-change-user-password" class="form-button">Change Password</a>
+		</div>
 		<footer data-role="footer">
 			<ul>
 				<li><a href="#page-map">Map</a></li>
@@ -84,17 +89,20 @@
 			</ul>
 		</footer>
 	</section>
+
 <!-- dog profile page -->
 	<section data-role="page" id="page-dog-profile">
 		<header data-role="header">
 			<h1>Dog!</h1>
-			<a href="#page-edit-dog-profile">Edit</a>
 			<ul>
 				<li><a href="#" data-rel="back">Back</a></li>
 			</ul>
 		</header>
 		<div data-role="main">
 			DOG
+		</div>
+		<div class="form-control">
+			<a href="#page-edit-dog-profile" class="form-button">Edit</a>
 		</div>
 	</section>
 

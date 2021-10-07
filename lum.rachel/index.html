@@ -28,16 +28,66 @@
 					<input class="form-input" type="password" id="signin-password" data-role="none" placeholder="Password">
 				</div>
 				<div class="form-control">
-					<a href="#page-map" class="form-button">Sign In</a>
+					<input type="submit" value="Sign In" class="form-button">
+				</div>
+				<div class="form-control">Need a new account?
+					<a href="#page-signup">Sign In</a>
 				</div>
 			</form>
 		</div>
 	</section>
+
+	   <section data-role="page" id="page-signup">
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="flex-stretch"></div>
+         <form data-ajax="false" class="form signin-form" id="signup-form" style="padding:10px">
+            <div class="form-control">
+               <label for="signup-email" class="form-label">Email Address</label>
+               <input class="form-input" type="text" id="signup-email" data-role="none" placeholder="Email">
+            </div>
+            <div class="form-control">
+               <label for="signup-password" class="form-label">New Password</label>
+               <input class="form-input" type="password" id="signup-password" data-role="none" placeholder="Password">
+            </div>
+            <div class="form-control">
+               <label for="signup-password2" class="form-label">Confirm Password</label>
+               <input class="form-input" type="password" id="signup-password2" data-role="none" placeholder="Confirm">
+            </div>
+            <div class="form-control">
+               <input type="submit" value="Sign Up" class="form-button">
+            </div>
+            <div class="form-control small centered">
+               Already have an account? <a href="#page-signin">Sign In</a>
+            </div>
+         </form>
+         <div class="flex-stretch"></div>
+      </div>
+   </section>
 <!-- map page -->
-		<section data-role="page" id="page-map" style="background-image: url(img/map.png);">
+	<section data-role="page" id="page-map">
 		<div data-role="main">
-			MAP
-		</div>
+			<div class="map"></div>
+
+			<div class="floater bottom right">
+				<a href="#" class="btn-circle" data-activate="#recent-add-modal">&plus;</a>
+			</div>
+
+			<div class="modal" id="recent-add-modal">
+            <div class="modal-back" data-deactivate="#recent-add-modal"></div>
+            <div class="modal-drawer left">
+               <div class="modal-head display-flex">
+                  <div class="flex-stretch">Drawer</div>
+                  <div class="flex-none">
+                     <!-- <img src="img/icons/close.svg" alt="" class="icon" data-deactivate="#recent-add-modal"> -->
+                  </div>
+               </div>
+               <div class="modal-body">
+                  Body
+               </div>
+            </div>
+         </div>
+      </div>
+
 		<footer data-role="footer">
 			<ul>
 				<li><a href="#page-map">Map</a></li>
@@ -48,67 +98,142 @@
 	</section>
 <!-- list page -->
 	<section data-role="page" id="page-list">
-		<div class="form-control">
-			<a href="#page-add-dog-profile" class="form-button">Add</a>
-		</div>
 		<div data-role="main">
-			<ul>
-				<li><a href="#page-dog-profile">Dog 1</a></li>
-				<li><a href="#page-dog-profile">Dog 2</a></li>
-				<li><a href="#page-dog-profile">Dog 3</a></li>
-				<li><a href="#page-dog-profile">Dog 4</a></li>
-				<li><a href="#page-dog-profile">Dog 5</a></li>
-				<li><a href="#page-dog-profile">Dog 6</a></li>
-				<li><a href="#page-dog-profile">Dog 7</a></li>
-				<li><a href="#page-dog-profile">Dog 8</a></li>
-				<li><a href="#page-dog-profile">Dog 9</a></li>
-				<li><a href="#page-dog-profile">Dog 10</a></li>
-			</ul>
-		</div>
-		<footer data-role="footer">
-			<ul>
-				<li><a href="#page-map">Map</a></li>
-				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-user-profile">Profile</a></li>
-			</ul>
-		</footer>
-	</section>
+			<div class="overscroll floater fill-parent">
+				<ul>
+					<li><a href="#page-dog-profile">Dog 1</a></li>
+					<li><a href="#page-dog-profile">Dog 2</a></li>
+					<li><a href="#page-dog-profile">Dog 3</a></li>
+					<li><a href="#page-dog-profile">Dog 4</a></li>
+					<li><a href="#page-dog-profile">Dog 5</a></li>
+					<li><a href="#page-dog-profile">Dog 6</a></li>
+					<li><a href="#page-dog-profile">Dog 7</a></li>
+					<li><a href="#page-dog-profile">Dog 8</a></li>
+					<li><a href="#page-dog-profile">Dog 9</a></li>
+					<li><a href="#page-dog-profile">Dog 10</a></li>
+					<li><a href="#page-dog-profile">Dog 11</a></li>
+					<li><a href="#page-dog-profile">Dog 12</a></li>
+					<li><a href="#page-dog-profile">Dog 13</a></li>
+					<li><a href="#page-dog-profile">Dog 14</a></li>
+					<li><a href="#page-dog-profile">Dog 15</a></li>
+					<li><a href="#page-dog-profile">Dog 16</a></li>
+					<li><a href="#page-dog-profile">Dog 17</a></li>
+					<li><a href="#page-dog-profile">Dog 18</a></li>
+					<li><a href="#page-dog-profile">Dog 19</a></li>
+					<li><a href="#page-dog-profile">Dog 20</a></li>
+					<li><a href="#page-dog-profile">Dog 21</a></li>
+					<li><a href="#page-dog-profile">Dog 22</a></li>
+					<li><a href="#page-dog-profile">Dog 23</a></li>
+					<li><a href="#page-dog-profile">Dog 24</a></li>
+					<li><a href="#page-dog-profile">Dog 25</a></li>
+					<li><a href="#page-dog-profile">Dog 26</a></li>
+					<li><a href="#page-dog-profile">Dog 27</a></li>
+					<li><a href="#page-dog-profile">Dog 28</a></li>
+					<li><a href="#page-dog-profile">Dog 29</a></li>
+					<li><a href="#page-dog-profile">Dog 30</a></li>
+					<li><a href="#page-dog-profile">Dog 31</a></li>
+					<li><a href="#page-dog-profile">Dog 32</a></li>
+					<li><a href="#page-dog-profile">Dog 33</a></li>
+					<li><a href="#page-dog-profile">Dog 34</a></li>
+					<li><a href="#page-dog-profile">Dog 35</a></li>
+					<li><a href="#page-dog-profile">Dog 36</a></li>
+					<li><a href="#page-dog-profile">Dog 37</a></li>
+					<li><a href="#page-dog-profile">Dog 38</a></li>
+					<li><a href="#page-dog-profile">Dog 39</a></li>
+					<li><a href="#page-dog-profile">Dog 40</a></li>
+					<li><a href="#page-dog-profile">Dog 41</a></li>
+					<li><a href="#page-dog-profile">Dog 42</a></li>
+					<li><a href="#page-dog-profile">Dog 43</a></li>
+					<li><a href="#page-dog-profile">Dog 44</a></li>
+					<li><a href="#page-dog-profile">Dog 45</a></li>
+					<li><a href="#page-dog-profile">Dog 46</a></li>
+					<li><a href="#page-dog-profile">Dog 47</a></li>
+					<li><a href="#page-dog-profile">Dog 48</a></li>
+					<li><a href="#page-dog-profile">Dog 49</a></li>
+					<li><a href="#page-dog-profile">Dog 50</a></li>
+					<li><a href="#page-dog-profile">Dog 1</a></li>
+					<li><a href="#page-dog-profile">Dog 2</a></li>
+					<li><a href="#page-dog-profile">Dog 3</a></li>
+					<li><a href="#page-dog-profile">Dog 4</a></li>
+					<li><a href="#page-dog-profile">Dog 5</a></li>
+					<li><a href="#page-dog-profile">Dog 6</a></li>
+					<li><a href="#page-dog-profile">Dog 7</a></li>
+					<li><a href="#page-dog-profile">Dog 8</a></li>
+					<li><a href="#page-dog-profile">Dog 9</a></li>
+					<li><a href="#page-dog-profile">Dog 10</a></li>
+				</ul>
+			</div>
+
+			<div class="floater bottom right">
+            	<a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
+         	</div>
+      	</div>
+      <footer data-role="footer">
+         <ul>
+            <li><a href="#page-map">Map</a></li>
+            <li><a href="#page-list">List</a></li>
+            <li><a href="#page-user-profile">Profile</a></li>
+         </ul>
+      </footer>
+
+      <div class="modal" id="list-add-modal">
+         <div class="modal-back" data-deactivate="#list-add-modal"></div>
+         <form class="modal-popup form" id="list-add-form" data-ajax="false">
+            <div class="modal-head">Add Dog</div>
+            <div class="modal-body">
+               <div class="form-control">
+                  <label for="list-add-name" class="form-label">Name</label>
+                  <input type="text" id="list-add-name" class="form-input" data-role="none" placeholder="Name">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-type" class="form-label">Type</label>
+                  <input type="text" id="list-add-type" class="form-input" data-role="none" placeholder="Name">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-breed" class="form-label">Breed</label>
+                  <input type="text" id="list-add-breed" class="form-input" data-role="none" placeholder="Name">
+               </div>
+            </div>
+            <div class="modal-foot">
+               <button type="submit" class="form-button">Save</button>
+            </div>
+         </form>
+      </div>
+   </section>
+
+
 <!-- user profile page -->
-	<section data-role="page" id="page-user-profile">
-		<div data-role="main">
-			USER
-		</div>
-		<div class="form-control">
-			<a href="#page-edit-user-profile" class="form-button" style="margin-bottom: 10px">Edit</a>
-			<a href="#page-change-user-password" class="form-button">Change Password</a>
-		</div>
-		<footer data-role="footer">
-			<ul>
-				<li><a href="#page-map">Map</a></li>
-				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-user-profile">Profile</a></li>
-			</ul>
-		</footer>
-	</section>
+   <section data-role="page" id="page-user-profile">
+      <div data-role="main" class="overscroll">
+         USER!
+         <div>
+            <button class="form-button js-logout">Log Out</button>
+         </div>
+      </div>
+      <footer data-role="footer">
+         <ul>
+            <li><a href="#page-map">Recent</a></li>
+            <li><a href="#page-list">List</a></li>
+            <li><a href="#page-user-profile">Profile</a></li>
+         </ul>
+      </footer>
+   </section>
 
 <!-- dog profile page -->
-	<section data-role="page" id="page-dog-profile">
-		<header data-role="header">
-			<h1>Dog!</h1>
-			<ul>
-				<li><a href="#" data-rel="back">Back</a></li>
-			</ul>
-		</header>
-		<div data-role="main">
-			DOG
-		</div>
-		<div class="form-control">
-			<a href="#page-edit-dog-profile" class="form-button">Edit</a>
-		</div>
-	</section>
+   <section data-role="page" id="page-dog-profile">
+      <header data-role="header">
+         <h1>DOG!</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         Dog!
+      </div>
+   </section>
 
 <!-- edit user profile page -->
-	<section data-role="page" id="page-edit-user-profile">
+<!-- 	<section data-role="page" id="page-edit-user-profile">
 		<header data-role="header">
 			<h1>EDIT USER</h1>
 			<ul>
@@ -118,10 +243,10 @@
 		<div data-role="main">
 			Edit user profile information
 		</div>
-	</section>
+	</section> -->
 
 <!-- change user password page -->
-	<section data-role="page" id="page-change-user-password">
+<!-- 	<section data-role="page" id="page-change-user-password">
 		<header data-role="header">
 			<h1>CHANGE PASSWORD</h1>
 			<ul>
@@ -131,10 +256,10 @@
 		<div data-role="main">
 			Change user password
 		</div>
-	</section>
+	</section> -->
 
 <!-- edit dog profile page -->
-	<section data-role="page" id="page-edit-dog-profile">
+<!-- 	<section data-role="page" id="page-edit-dog-profile">
 		<header data-role="header">
 			<h1>EDIT DOG</h1>
 			<ul>
@@ -144,10 +269,10 @@
 		<div data-role="main">
 			Edit dog profile information
 		</div>
-	</section>
+	</section> -->
 
 <!-- add dog profile page -->
-	<section data-role="page" id="page-add-dog-profile">
+<!-- 	<section data-role="page" id="page-add-dog-profile">
 		<header data-role="header">
 			<h1>ADD DOG</h1>
 			<ul>
@@ -157,7 +282,7 @@
 		<div data-role="main">
 			Add dog profile information
 		</div>
-	</section>
+	</section> -->
 
 
 </body>

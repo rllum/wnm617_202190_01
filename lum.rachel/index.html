@@ -19,6 +19,8 @@
 <!-- sign in page -->	
 	<section data-role="page" id="page-signin">
 		<div data-role="main" class="display-flex flex-vertical">
+			<!-- <div class="logo"></div> -->
+			<!-- <img class="logo" src="img/woof!-logo-pink.png" alt="logo"> -->
 			<div class="flex-stretch"></div>
 			<form data-ajax="false" class="form" id="signin-form" style="padding:10px">
 				<div class="form-control">
@@ -31,7 +33,7 @@
 					<input type="submit" value="Sign In" class="form-button">
 				</div>
 				<div class="form-control">Need a new account?
-					<a href="#page-signup">Sign In</a>
+					<a href="#page-signup">Sign Up</a>
 				</div>
 			</form>
 		</div>
@@ -68,13 +70,13 @@
 		<div data-role="main">
 			<div class="map"></div>
 
-			<div class="floater bottom right">
-				<a href="#" class="btn-circle" data-activate="#recent-add-modal">&plus;</a>
+			<div class="floater top right">
+				<a href="#" class="btn-circle" data-activate="#recent-add-modal">&hearts;</a>
 			</div>
 
 			<div class="modal" id="recent-add-modal">
             <div class="modal-back" data-deactivate="#recent-add-modal"></div>
-            <div class="modal-drawer left">
+            <div class="modal-drawer top">
                <div class="modal-head display-flex">
                   <div class="flex-stretch">Drawer</div>
                   <div class="flex-none">
@@ -82,7 +84,7 @@
                   </div>
                </div>
                <div class="modal-body">
-                  Body
+                  List of favorite/recent dogs
                </div>
             </div>
          </div>
@@ -99,6 +101,7 @@
 <!-- list page -->
 	<section data-role="page" id="page-list">
 		<div data-role="main">
+			List of Dogs!
 			<div class="overscroll floater fill-parent">
 				<ul>
 					<li><a href="#page-dog-profile">Dog 1</a></li>
@@ -207,17 +210,47 @@
       <div data-role="main" class="overscroll">
          USER!
          <div>
-            <button class="form-button js-logout">Log Out</button>
+            <button class="form-button js-logout floater bottom" style="margin-top: 10em;">Log Out</button>
          </div>
+
+         <div class="floater top right">
+            <a href="#page-edit-user-profile" class="form-button">Edit</a>
+         </div>
+
       </div>
       <footer data-role="footer">
          <ul>
-            <li><a href="#page-map">Recent</a></li>
+            <li><a href="#page-map">Map</a></li>
             <li><a href="#page-list">List</a></li>
             <li><a href="#page-user-profile">Profile</a></li>
          </ul>
       </footer>
    </section>
+
+<!-- edit user profile page -->
+	<section data-role="page" id="page-edit-user-profile">
+		<header data-role="header">
+			<h1>EDIT USER</h1>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+			</ul>
+		</header>
+		<div data-role="main">
+			Edit user profile information
+			<div class="form-control">
+               <label class="form-label"> New Email Address</label>
+               <input class="form-input" type="text" id="" data-role="none" placeholder="Email">
+            </div>
+            <div class="form-control">
+               <label class="form-label">New Password</label>
+               <input class="form-input" type="password" id="" data-role="none" placeholder="Password">
+            </div>
+
+            <div>
+         		<button class="form-button"><a href="">Save</a></button>
+        	</div>
+		</div>
+	</section>
 
 <!-- dog profile page -->
    <section data-role="page" id="page-dog-profile">
@@ -228,38 +261,19 @@
          </ul>
       </header>
       <div data-role="main">
-         Dog!
+         Dog Info :Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+         <div class="floater bottom right">
+            <a href="#page-edit-dog-profile" class="form-button">Edit</a>
+         </div>
       </div>
    </section>
 
-<!-- edit user profile page -->
-<!-- 	<section data-role="page" id="page-edit-user-profile">
-		<header data-role="header">
-			<h1>EDIT USER</h1>
-			<ul>
-				<li><a href="#" data-rel="back">Back</a></li>
-			</ul>
-		</header>
-		<div data-role="main">
-			Edit user profile information
-		</div>
-	</section> -->
 
-<!-- change user password page -->
-<!-- 	<section data-role="page" id="page-change-user-password">
-		<header data-role="header">
-			<h1>CHANGE PASSWORD</h1>
-			<ul>
-				<li><a href="#" data-rel="back">Back</a></li>
-			</ul>
-		</header>
-		<div data-role="main">
-			Change user password
-		</div>
-	</section> -->
 
 <!-- edit dog profile page -->
-<!-- 	<section data-role="page" id="page-edit-dog-profile">
+	<section data-role="page" id="page-edit-dog-profile">
 		<header data-role="header">
 			<h1>EDIT DOG</h1>
 			<ul>
@@ -268,21 +282,25 @@
 		</header>
 		<div data-role="main">
 			Edit dog profile information
-		</div>
-	</section> -->
+			<div class="form-control">
+               <label class="form-label"> Edit Name</label>
+               <input class="form-input" type="text" id="" data-role="none" placeholder="Name">
+            </div>
+            <div class="form-control">
+               <label class="form-label">Edit Type</label>
+               <input class="form-input" type="text" id="" data-role="none" placeholder="Type">
+            </div>
+             <div class="form-control">
+               <label class="form-label">Edit Breed</label>
+               <input class="form-input" type="text" id="" data-role="none" placeholder="Breed">
+            </div>
 
-<!-- add dog profile page -->
-<!-- 	<section data-role="page" id="page-add-dog-profile">
-		<header data-role="header">
-			<h1>ADD DOG</h1>
-			<ul>
-				<li><a href="#" data-rel="back">Back</a></li>
-			</ul>
-		</header>
-		<div data-role="main">
-			Add dog profile information
+            <div>
+         		<button class="form-button"><a href="">Save</a></button>
+        	</div>
 		</div>
-	</section> -->
+	</section>
+
 
 
 </body>

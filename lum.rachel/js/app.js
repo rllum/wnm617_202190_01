@@ -42,7 +42,27 @@ $(()=>{
       let target = $(this).data("toggle");
       $(target).toggleClass("active");
    })
+   .on("click","[data-activateone]",function(e){
+      let target = $(this).data("activateone");
+      $(target).addClass("active").siblings().removeClass('active');
+   })
+   ;
 
 
+
+   $("[data-template]").each(function(){
+      let target = $(this).data("template");
+      $(this).html($(target).html());
+   })
+
+   // $({
+   //    "#page-map":".nav-icon-set li:nth-child(1)",
+   //    "#page-list":".nav-icon-set li:nth-child(2)",
+   //    "#page-user-profile":".nav-icon-set li:nth-child(3)",
+   // }[location.hash]).addClass("active");
 
 });
+
+
+
+

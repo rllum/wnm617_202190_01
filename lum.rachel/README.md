@@ -11,6 +11,5 @@
 
 ## Demo Links
 - http://rachellauren.work/aau/wnm617/lum.rachel/demo/jquery.html
-- http://rachellauren.work/aau/wnm617/lum.rachel/demo/jquerymobile.html
 
 - Take note of how markdown works

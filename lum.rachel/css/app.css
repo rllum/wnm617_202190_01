@@ -246,7 +246,7 @@ a{
 	height: auto;
 	display: inline-block;
 	border-width: 0;
-	background-color: var(--color-main-dark);
+	background-color: var(--color-main-light);
 	margin-top: 2em;
 	padding: 0.5em 1em;
 	border-radius: 1em;

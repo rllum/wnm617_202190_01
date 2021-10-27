@@ -73,30 +73,30 @@
 			<div class="map"></div>
 
 			<div class="floater" style="top: 20%;left: 20%;">
-				<a href="#" data-activate="#recent-add-modal"><img src="img/icons/location.svg" class="icon" style="width: 5em; height: 5em;"></a>
+				<a href="#" data-activate="#recent-add-modal"><img src="img/icons/location.svg" class="icon" style="width: 2em; height: 2em;"></a>
 			</div>
 
 			<div class="floater" style="top: 80%;left: 70%;">
-				<a href="#" data-activate="#recent-add-modal"><img src="img/icons/location.svg" class="icon" style="width: 5em; height: 5em;"></a>
+				<a href="#" data-activate="#recent-add-modal"><img src="img/icons/location.svg" class="icon" style="width: 2em; height: 2em;"></a>
 			</div>
 
 			<div class="floater top right">
 				<a href="#page-location-choose-dog" class="btn-circle">&plus;</a>
 			</div>
 
-<!-- 			<div class="modal" id="recent-add-modal">
+			<div class="modal" id="recent-add-modal">
             <div class="modal-back" data-deactivate="#recent-add-modal"></div>
             <div class="modal-drawer top">
                <div class="modal-head display-flex">
-                  <div class="flex-stretch">Drawer</div>
+                  <div class="flex-stretch">Dog</div>
                   <div class="flex-none">
                   </div>
                </div>
                <div class="modal-body">
-                  List of favorite/recent dogs
+                  Dog at this location
                </div>
             </div>
-         </div> -->
+         </div>
       </div>
 
       <footer data-role="footer" data-template="#footer-template"></footer>
@@ -156,29 +156,50 @@
 
 <!-- user profile page -->
    <section data-role="page" id="page-user-profile">
-		<div data-role="main" class="display-flex flex-vertical">
-	      	<div class="overscroll">
-	      		<div class="user-profile-top">
-	      			<h1>Hello Again</h1>
-	      		</div>
-
-	      		<div class="user-profile-middle">
-					<img class="user-profile-image" src="img/user-profile-img.jpg" alt="">
-	      			<p>Profile Info:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-	      		</div>
-
-	      		<div class="user-profile-bottom">
-	      			<div class="centered">
-		      			<div class="user-button">
-							<button onclick='location.href="#page-edit-user-profile"'>Edit</button>
-		      			</div>
-
-		      			<div class="user-button">
-		      				<button class="js-logout">Log Out</button>
-		      			</div>
-					</div>	
-	      		</div>
+		  <div data-role="main" class="display-flex flex-vertical">
+	      <div class="overscroll">
+	      	<div class="user-profile-top">
+	      		<h1 class="padding-sm">Hello Again</h1>
 	      	</div>
+
+	      	<div class="user-profile-middle">
+					   <img class="user-profile-image" src="img/user-profile-img.jpg" alt="">
+	      			<p class="centered">Samantha P.</p>
+              <p class="centered">&hearts; &hearts; &hearts;</p>
+	      	</div>
+
+	      	<div class="user-profile-bottom">
+	      		<div class="centered">
+		      		<div class="user-button">
+							   <button onclick='location.href="#page-edit-user-profile"'>Edit Profile</button>
+		      		</div>
+
+<!-- 		      			<div class="user-button">
+		      				<button class="js-logout">Log Out</button>
+		      			</div> -->
+					   </div>	
+	      	</div>
+	      </div>
+
+        <div class="floater top right">
+          <a href="#" data-activate="#user-menu-modal">&colon;</a>
+        </div>
+
+        <div class="modal" id="user-menu-modal">
+          <div class="modal-back" data-deactivate="#user-menu-modal"></div>
+            <div class="modal-drawer right">
+               <div class="modal-head display-flex">
+                  <div class="flex-stretch">Your Account</div>
+                  <div class="flex-none">
+                  </div>
+               </div>
+               <div class="modal-body">
+                  <div class="user-button">
+                    <button class="js-logout">Log Out</button>
+                  </div>
+               </div>
+            </div>
+        </div>
     	</div>
 
       <footer data-role="footer" data-template="#footer-template"></footer>
@@ -257,8 +278,8 @@
                      <input type="text" id="dog-add-name" class="form-input" data-role="none" placeholder="Name">
                   </div>
                   <div class="form-control">
-                     <label for="dog-add-type" class="form-label">Type</label>
-                     <input type="text" id="dog-add-type" class="form-input" data-role="none" placeholder="Name">
+                     <label for="dog-add-type" class="form-label">Temperament</label>
+                     <input type="text" id="dog-add-termperament" class="form-input" data-role="none" placeholder="Name">
                   </div>
                   <div class="form-control">
                      <label for="dog-add-breed" class="form-label">Breed</label>
@@ -350,8 +371,8 @@
 	               <input class="form-input" type="text" id="dog-edit-name" data-role="none" placeholder="Name">
 	            </div>
 	            <div class="form-control">
-	               <label class="form-label">Edit Type</label>
-	               <input class="form-input" type="text" id="dog-edit-type" data-role="none" placeholder="Type">
+	               <label class="form-label">Edit Temperament</label>
+	               <input class="form-input" type="text" id="dog-edit-temperamant" data-role="none" placeholder="Type">
 	            </div>
 	             <div class="form-control">
 	               <label class="form-label">Edit Breed</label>
@@ -390,8 +411,8 @@
 			<img src="img/dog-profile-img-1.jpg" alt="">
 		</div>
 		<div class="flex-stretch dog-list-item-body padding-md">
-			<div class="dog-list-item-name">Dog</div>
-			<div class="dog-list-item-type"><strong>Type</strong> Dog</div>
+			<div class="dog-list-item-name">Max</div>
+			<div class="dog-list-item-temperament"><strong>Temperament</strong> Happy</div>
 			<div class="dog-list-item-breed"><strong>Breed</strong> Dog</div>
 		</div>
 	</a>

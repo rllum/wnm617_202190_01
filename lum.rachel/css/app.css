@@ -290,7 +290,10 @@ a{
 }
 
 .logo {
-	margin-top: 10em;
+	margin-top: 15em;
+	width: 80%;
+	height: auto;
+	align-self: center;
 }
 
 /*NAV*/

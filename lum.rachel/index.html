@@ -11,6 +11,9 @@
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/app.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/parts.js"></script>
 	<script src="js/signin.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -108,16 +111,7 @@
 		<div data-role="main">
 			
 			<div class="overscroll floater fill-parent">
-				<ul class="dog-list">
-					<li class="dog-list-item" data-template="#dog-list-item-template"></li>
-					<li class="dog-list-item" data-template="#dog-list-item-template"></li>
-					<li class="dog-list-item" data-template="#dog-list-item-template"></li>
-					<li class="dog-list-item" data-template="#dog-list-item-template"></li>
-					<li class="dog-list-item" data-template="#dog-list-item-template"></li>
-					<li class="dog-list-item" data-template="#dog-list-item-template"></li>
-					<li class="dog-list-item" data-template="#dog-list-item-template"></li>
-					<li class="dog-list-item" data-template="#dog-list-item-template"></li>
-				</ul>
+				<div class="dog-list"></div>	
 			</div>
 
 			<div class="floater bottom right">
@@ -156,8 +150,9 @@
 
 <!-- user profile page -->
    <section data-role="page" id="page-user-profile">
-		  <div data-role="main" class="display-flex flex-vertical">
-	      <div class="overscroll">
+    <div data-role="main">
+		  <!-- <div data-role="main" class="display-flex flex-vertical"> -->
+<!-- 	      <div class="overscroll">
 	      	<div class="user-profile-top">
 	      		<h1 class="padding-sm">Hello Again</h1>
 	      	</div>
@@ -172,12 +167,12 @@
 	      		<div class="centered">
 		      		<div class="user-button">
 							   <button onclick='location.href="#page-edit-user-profile"'>Edit Profile</button>
-		      		</div>
+		      		</div> -->
 
 <!-- 		      			<div class="user-button">
 		      				<button class="js-logout">Log Out</button>
 		      			</div> -->
-					   </div>	
+					  <!--  </div>	
 	      	</div>
 	      </div>
 
@@ -199,7 +194,7 @@
                   </div>
                </div>
             </div>
-        </div>
+        </div> -->
     	</div>
 
       <footer data-role="footer" data-template="#footer-template"></footer>

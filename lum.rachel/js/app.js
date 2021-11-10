@@ -8,6 +8,16 @@ $(()=>{
    $(document)
 
 
+   .on("pagecontainerbeforeshow", function(event, ui){
+      //Page Routing
+      switch(ui.toPage[0].id){
+         case "page-map": MapPage(); break;
+         case "page-list": ListPage(); break;
+         case "page-user-profile": UserProfilePage(); break;
+         case "page-dog-profile": DogProfilePage(); break;
+      }
+   })
+
    // FORM SUBMITS
    .on("submit","#signin-form",function(e) {
       e.preventDefault();
@@ -25,7 +35,12 @@ $(()=>{
       checkUserId();
    })
 
+   .on("click",".dog-jump",function(e){
+      if(!$(this).data("id")) throw("No ID on element");
+      sessionStorage.dogId = $(this).data("id");
+      $.mobile.navigate("#page-dog-profile");
 
+   })
 
    .on("click","[data-activate]",function(e){
       e.preventDefault();

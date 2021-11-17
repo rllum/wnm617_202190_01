@@ -53,8 +53,8 @@ function makeQuery($c,$ps,$p,$makeResults=true) {
 function makeStatment($data) {
 	try{
 		$c = makeConn();
-		$t = $data->type;
-		$p = $data->params;
+		$t = @$data->type;
+		$p = @$data->params;
 
 		switch($t) {
 		// case "users_all":
@@ -67,7 +67,7 @@ function makeStatment($data) {
 		// 	return makeQuery($c,"SELECT * FROM `track_locations`",$p);
 
 		case "user_by_id":
-			return makeQuery($c,"SELECT * FROM `track_users` WHERE `id`=?",$p);
+			return makeQuery($c,"SELECT id,username,name,email,img FROM `track_users` WHERE `id`=?",$p);
 
 		case "dog_by_id":
 			return makeQuery($c,"SELECT * FROM `track_dogs` WHERE `id`=?",$p);
@@ -83,6 +83,25 @@ function makeStatment($data) {
 
 		case "check_signin":
 			return makeQuery($c,"SELECT id FROM `track_users` WHERE `username`= ? AND `password`=md5(?)",$p);
+
+		case "recent_dog_locations":
+			return makeQuery($c,"SELECT * 
+				FROM `track_dogs` a
+				JOIN (
+				SELECT lg.*
+				FROM `track_locations` lg
+				WHERE lg.id = (
+					SELECT lt.id
+						FROM `track_locations` lt
+						WHERE lt.dog_id = lg.dog_id
+						ORDER BY lt.date_create DESC
+						LIMIT 1
+					)
+				) l
+				ON a.id=l.dog_id
+				WHERE a.user_id=?
+				ORDER BY l.dog_id, l.date_create DESC 
+				",$p);
 
 			default: return ["error"=>"No Matched Type"];
 	}

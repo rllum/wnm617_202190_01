@@ -1,33 +1,51 @@
 
-const ListPage = async() => {
+const resultQuery = async (options) => {
 	//destructure
-	let {result,error} = await query({type:'dogs_by_user_id',params:[sessionStorage.userId]});
+		let {result,error} = await query(options);
 
 	if(error) {
-		console.log(error);
+		throw(error);
 		return;
 	}
 
-	console.log(result,error);
+	return result;
+}
+
+
+
+const ListPage = async() => {
+	let result = await resultQuery({type:'dogs_by_user_id',params:[sessionStorage.userId]}
+		);
+	
+
+
+	console.log(result);
 
 	$("#page-list .dog-list").html(makeDogList(result));
 }
 
 const MapPage = async() => {
-	console.log("honk")
+	let result = await resultQuery({type:'recent_dog_locations',params:[sessionStorage.userId]});
+
+	
+	let dogs = result.reduce((r,o)=> {
+		o.icon = o.img;
+	},[]);
+
+	let mapEl = makeMap("#page-map .map");
+
+	makeMarkers(mapEl,result);
+	
+	
 }
 
 
 
 const UserProfilePage = async() => {
-	let {result,error} = await query({type:'user_by_id',params:[sessionStorage.userId]});
+	let result = await resultQuery({type:'user_by_id',params:[sessionStorage.userId]});
 
-		if(error) {
-		console.log(error);
-		return;
-	}
 
-	console.log(result,error);
+	console.log(result);
 	let [user] = result;
 	$("#page-user-profile [data-role='main']").html(makeUserProfile(user));
 }
@@ -35,15 +53,24 @@ const UserProfilePage = async() => {
 
 
 const DogProfilePage = async() => {
-		let {result,error} = await query({type:'dog_by_id',params:[sessionStorage.dogId]});
+		let dog_result = await resultQuery({
+			type:'dog_by_id',
+			params:[sessionStorage.dogId]
+		});
 
-		if(error) {
-		console.log(error);
-		return;
-	}
+		let[dog] = dog_result;
+			$(".dog-profile-top img").attr("src",dog.img);
 
-	let[dog] = result;
-	$(".dog-profile-top img").attr("src",dog.img);
+
+		let locations_result = await resultQuery({
+			type:'locations_by_dog_id',
+			params:[sessionStorage.dogId]
+		});
+
+	let mapEl = makeMap("#page-dog-profile .map");
+	makeMarkers(mapEl,locations_result);
+
+
 }
 
 

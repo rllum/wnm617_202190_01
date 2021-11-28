@@ -236,32 +236,32 @@
 <!-- DOG PAGES -->
 
 <!-- dog profile page -->
-   <section data-role="page" id="page-dog-profile">
-      <header data-role="header">
-         <h1>DOG!</h1>
-         <ul>
-            <li><a href="#page-list" data-rel="back">Back</a></li>
-         </ul>
-      </header>
-      <div data-role="main" class="display-flex flex-vertical">
-      		<div class="dog-profile-top">
-      			<img class="dog-profile-image" src="img/dog-profile-img-1.jpg" alt="">
-      		</div>
-      		<div class="dog-profile-middle">
-      			<ul class="nav">
-	      			<li>Map</li>
-	      			<li style="color: var(--color-main-medium);"><a href="#page-edit-dog-profile">Edit</a></li>
-      			</ul>
-      		</div>
-      		<div class="dog-profile-bottom">
-      			<div class="map"></div>
+  <section data-role="page" id="page-dog-profile">
+    <div data-role="main" class="display-flex flex-vertical">
+      <div class="dog-profile-top">
+        <img src="" alt="">
+      </div>
+      <div class="dog-profile-middle">
+        <ul class="nav">
+          <li>Map</li>
+          <li>Description</li>
+        </ul>
+      </div>
+      <div class="dog-profile-bottom">
+        <div class="map"></div>
+        <div class="description"></div>
+      </div>
+    </div>
 
-<!--       			<div class="floater" style="top: 30%;left: 20%;">
-					<a href="#" data-activate="#recent-add-modal"><img src="img/icons/location.svg" class="icon" style="width: 5em; height: 5em;"></a>
-				</div> -->
-      		</div>
-    	</div>
-   </section>
+    <header data-role="header" class="floating-header">
+      <ul>
+        <li><a href="#" data-rel="back">Back</a></li>
+        <li class="flex-stretch"></li>
+        <li><a href="#page-edit-dog-profile">Edit</a></li>
+      </ul>
+    </header>
+  </section>
+
 
 <!-- add dog page -->
     <section data-role="page" id="page-add-dog">
@@ -374,7 +374,7 @@
 	            </div>
 	            <div class="form-control">
 	               <label class="form-label">Edit Temperament</label>
-	               <input class="form-input" type="text" id="dog-edit-temperamant" data-role="none" placeholder="Type">
+	               <input class="form-input" type="text" id="dog-edit-temperamant" data-role="none" placeholder="Temperament">
 	            </div>
 	             <div class="form-control">
 	               <label class="form-label">Edit Breed</label>

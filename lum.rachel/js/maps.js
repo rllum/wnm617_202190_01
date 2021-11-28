@@ -1,5 +1,6 @@
 
-const makeMap = (target="",center={ lat: 37.786437, lng: -122.399650 }) => {
+const makeMap = async(target="",center={ lat: 37.786437, lng: -122.399650 }) => {
+	await checkData(()=> window.google);
 	let mapEl = $(target);
 
 	if(!mapEl.data("map")) {
@@ -14,6 +15,7 @@ const makeMap = (target="",center={ lat: 37.786437, lng: -122.399650 }) => {
 	}
 		return mapEl;
 }
+
 
 const makeMarkers = (mapEl,mapLocs) => {
 	let {map,markers} = mapEl.data();

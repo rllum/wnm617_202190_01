@@ -15,6 +15,7 @@ $(()=>{
          case "page-list": ListPage(); break;
          case "page-user-profile": UserProfilePage(); break;
          case "page-dog-profile": DogProfilePage(); break;
+         case "page-edit-dog-profile": DogEditPage(); break;
       }
    })
 
@@ -23,6 +24,8 @@ $(()=>{
       e.preventDefault();
       checkSigninForm();
    })
+
+
    .on("submit","#list-add-form",function(e) {
       e.preventDefault();
    })
@@ -35,6 +38,7 @@ $(()=>{
       checkUserId();
    })
 
+
    .on("click",".dog-jump",function(e){
       if(!$(this).data("id")) throw("No ID on element");
       sessionStorage.dogId = $(this).data("id");
@@ -42,21 +46,44 @@ $(()=>{
 
    })
 
+
+
+
+   .on("click",".dog-profile-middle li",function(e){
+      let id = $(this).index();
+      $(this).addClass("active")
+      .siblings().removeClass("active");
+
+      $(this).closest(".dog-profile-middle").next().children().eq(id).addClass("active")
+      .siblings().removeClass("active");
+   })
+
+
+
    .on("click","[data-activate]",function(e){
       e.preventDefault();
       let target = $(this).data("activate");
       $(target).addClass("active");
    })
+
+
+
    .on("click","[data-deactivate]",function(e){
       e.preventDefault();
       let target = $(this).data("deactivate");
       $(target).removeClass("active");
    })
+
+
+
    .on("click","[data-toggle]",function(e){
       e.preventDefault();
       let target = $(this).data("toggle");
       $(target).toggleClass("active");
    })
+
+
+
    .on("click","[data-activateone]",function(e){
       let target = $(this).data("activateone");
       $(target).addClass("active").siblings().removeClass('active');

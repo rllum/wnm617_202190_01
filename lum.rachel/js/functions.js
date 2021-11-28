@@ -25,3 +25,20 @@ function templater(func) {
    }
 }
 */
+
+//recursion
+const checkData = (exteriror_check) => new Promise((resolve,reject)=>{
+   let timeout = 0;
+   const interior_check = () => {
+      timeout++; if(timeout>100) return reject();
+      return exteriror_check() ? resolve() : setTimeout(interior_check,10);
+   }
+   interior_check();
+});
+
+
+
+
+
+
+

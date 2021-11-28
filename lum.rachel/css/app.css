@@ -333,6 +333,15 @@ a{
 	bottom: 1em;
 }
 
+.floating-header {
+   position: absolute;
+   background-color: rgba(255,255,255,0.15);
+   width: 100%;
+   top: 0;
+   left: 0;
+   box-shadow: none;
+}
+
 
 /*CIRCLE BUTTON*/
 .btn-circle{
@@ -536,23 +545,8 @@ a{
 	position: relative;
 }
 
-.dog-profile-top img{
-	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
-  	width: 50%;
-}
 
 
-/*USER PROFILE*/
-
-.user-profile-image{
-	display: block;
-	margin-top: auto;
-  	margin-left: auto;
-  	margin-right: auto;
-  	width: 80%;
-}
 
 
 

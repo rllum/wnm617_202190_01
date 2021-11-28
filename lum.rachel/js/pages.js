@@ -24,19 +24,20 @@ const ListPage = async() => {
 	$("#page-list .dog-list").html(makeDogList(result));
 }
 
+
 const MapPage = async() => {
 	let result = await resultQuery({type:'recent_dog_locations',params:[sessionStorage.userId]});
 
 	
 	let dogs = result.reduce((r,o)=> {
 		o.icon = o.img;
+		if(o.lat && o.lng) r.push(o);
+		return r;
 	},[]);
 
-	let mapEl = makeMap("#page-map .map");
+	let mapEl = await makeMap("#page-map .map");
 
-	makeMarkers(mapEl,result);
-	
-	
+	makeMarkers(mapEl,dogs);	
 }
 
 
@@ -60,6 +61,7 @@ const DogProfilePage = async() => {
 
 		let[dog] = dog_result;
 			$(".dog-profile-top img").attr("src",dog.img);
+			$(".dog-profile-bottom .description").html(dog.description);
 
 
 		let locations_result = await resultQuery({
@@ -67,9 +69,23 @@ const DogProfilePage = async() => {
 			params:[sessionStorage.dogId]
 		});
 
-	let mapEl = makeMap("#page-dog-profile .map");
+	let mapEl = await makeMap("#page-dog-profile .map");
 	makeMarkers(mapEl,locations_result);
+}
 
+
+const DogEditPage = async() => {
+		let dog_result = await resultQuery({
+			type:'dog_by_id',
+			params:[sessionStorage.dogId]
+		});
+
+		let[dog] = dog_result;
+		$(".dog-profile-top img").attr("src",dog.img);
+
+		$("#dog-edit-name").val(dog.name);
+		$("#dog-edit-temperamant").val(dog.temperamant);
+		$("#dog-edit-breed").val(dog.breed);
 
 }
 

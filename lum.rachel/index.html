@@ -14,6 +14,7 @@
   <script src="js/functions.js"></script>
   <script src="js/pages.js"></script>
   <script src="js/parts.js"></script>
+  <script src="js/forms.js"></script>
   <script src="js/maps.js"></script>
 	<script src="js/signin.js"></script>
 
@@ -78,40 +79,80 @@
    </section>
 
 <!-- map page -->
-	<section data-role="page" id="page-map">
-		<div data-role="main">
-			<div class="map"></div>
+     <section data-role="page" id="page-map">
+      <div data-role="main">
+         <div class="map"></div>
 
-<!-- 			<div class="floater" style="top: 20%;left: 20%;">
-				<a href="#" data-activate="#recent-add-modal"><img src="img/icons/location.svg" class="icon" style="width: 2em; height: 2em;"></a>
-			</div>
+         <div class="floater top right">
+            <a href="#page-location-choose-dog" class="btn-circle" data-setnavigateback="-3">&plus;</a>
+         </div>
 
-			<div class="floater" style="top: 80%;left: 70%;">
-				<a href="#" data-activate="#recent-add-modal"><img src="img/icons/location.svg" class="icon" style="width: 2em; height: 2em;"></a>
-			</div> -->
-
-			<div class="floater top right">
-				<a href="#page-location-choose-dog" class="btn-circle">&plus;</a>
-			</div>
-
-			<div class="modal" id="recent-add-modal">
-            <div class="modal-back" data-deactivate="#recent-add-modal"></div>
-            <div class="modal-drawer top">
-               <div class="modal-head display-flex">
-                  <div class="flex-stretch">Dog</div>
-                  <div class="flex-none">
-                  </div>
-               </div>
-               <div class="modal-body">
-                  Dog at this location
-               </div>
+         <div id="recent-drawer" class="modal">
+            <div class="modal-back transparent" data-deactivate="#recent-drawer"></div>
+            <div class="modal-drawer basin top">
+               <div class="modal-body"></div>
             </div>
          </div>
       </div>
-
       <footer data-role="footer" data-template="#footer-template"></footer>
+   </section>
 
-	</section>
+   <!-- choose dog page -->
+    <section data-role="page" id="page-location-choose-dog">
+      <header data-role="header">
+         <h1>Choose Animal</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#page-location-set-location">Next</a></li>
+         </ul>
+      </header>
+      <div data-role="main" style="padding:1em">
+         <input type="hidden" id="location-dog-choice">
+         <div>
+            <a href="#page-dog-add">Make a new animal</a>
+         </div>
+         <p>Or</p>
+         <div class="form-select location-dog-choice-select"></div>
+      </div>
+   </section>
+
+<!-- choose location page -->
+    <section data-role="page" id="page-location-set-location">
+      <header data-role="header">
+         <h1>Set Location</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#page-location-description">Next</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         Set Location
+      </div>
+   </section>
+
+<!-- description page -->
+  <section data-role="page" id="page-location-description">
+      <header data-role="header">
+         <h1>Description</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-navigate-back">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form action="" style="padding:1em">
+            <input type="hidden" id="location-navigateback" value="-3">
+
+            <div class="form-control">
+               <label for="location-description" class="form-label">Describe the animal</label>
+               <textarea id="location-description" class="form-input" data-role="none" placeholder="What did it look like?"></textarea>
+            </div>
+         </form>
+      </div>
+  </section>
 
 <!-- list page -->
 	<section data-role="page" id="page-list">
@@ -127,110 +168,61 @@
       	</div>
 
       	<footer data-role="footer" data-template="#footer-template"></footer>
-
-<!--       <div class="modal" id="list-add-modal">
-         <div class="modal-back" data-deactivate="#list-add-modal"></div>
-         <form class="modal-popup form" id="list-add-form" data-ajax="false">
-            <div class="modal-head">Add Dog</div>
-            <div class="modal-body">
-               <div class="form-control">
-                  <label for="list-add-name" class="form-label">Name</label>
-                  <input type="text" id="list-add-name" class="form-input" data-role="none" placeholder="Name">
-               </div>
-               <div class="form-control">
-                  <label for="list-add-type" class="form-label">Type</label>
-                  <input type="text" id="list-add-type" class="form-input" data-role="none" placeholder="Type">
-               </div>
-               <div class="form-control">
-                  <label for="list-add-breed" class="form-label">Breed</label>
-                  <input type="text" id="list-add-breed" class="form-input" data-role="none" placeholder="Breed">
-               </div>
-            </div>
-            <div class="modal-foot">
-               <button type="submit" class="form-button">Save</button>
-            </div>
-         </form>
-      </div> -->
    </section>
+   
 
 <!-- USER PAGES -->
 
 <!-- user profile page -->
-   <section data-role="page" id="page-user-profile">
-    <div data-role="main">
-		  <!-- <div data-role="main" class="display-flex flex-vertical"> -->
-<!-- 	      <div class="overscroll">
-	      	<div class="user-profile-top">
-	      		<h1 class="padding-sm">Hello Again</h1>
-	      	</div>
-
-	      	<div class="user-profile-middle">
-					   <img class="user-profile-image" src="img/user-profile-img.jpg" alt="">
-	      			<p class="centered">Samantha P.</p>
-              <p class="centered">&hearts; &hearts; &hearts;</p>
-	      	</div>
-
-	      	<div class="user-profile-bottom">
-	      		<div class="centered">
-		      		<div class="user-button">
-							   <button onclick='location.href="#page-edit-user-profile"'>Edit Profile</button>
-		      		</div> -->
-
-<!-- 		      			<div class="user-button">
-		      				<button class="js-logout">Log Out</button>
-		      			</div> -->
-					  <!--  </div>	
-	      	</div>
-	      </div>
-
-        <div class="floater top right">
-          <a href="#" data-activate="#user-menu-modal">&colon;</a>
-        </div>
-
-        <div class="modal" id="user-menu-modal">
-          <div class="modal-back" data-deactivate="#user-menu-modal"></div>
-            <div class="modal-drawer right">
-               <div class="modal-head display-flex">
-                  <div class="flex-stretch">Your Account</div>
-                  <div class="flex-none">
-                  </div>
-               </div>
-               <div class="modal-body">
-                  <div class="user-button">
-                    <button class="js-logout">Log Out</button>
-                  </div>
-               </div>
-            </div>
-        </div> -->
-    	</div>
-
+  <section data-role="page" id="page-user-profile">
+      <div data-role="main" class="overscroll"></div>
       <footer data-role="footer" data-template="#footer-template"></footer>
-
-   </section>
+  </section>
 
 <!-- edit user profile page -->
-	<section data-role="page" id="page-edit-user-profile">
-		<header data-role="header">
-			<ul>
-				<li><a href="#" data-rel="back">Back</a></li>
-			</ul>
-		</header>
-		<div data-role="main">
-			<div class="padding-md">
-				<div class="form-control">
-	               <label class="form-label"> New Email Address</label>
-	               <input class="form-input" type="text" id="new-user-email" data-role="none" placeholder="Email">
-	            </div>
-	            <div class="form-control">
-	               <label class="form-label">New Password</label>
-	               <input class="form-input" type="password" id="new-user-password" data-role="none" placeholder="Password">
-	            </div>
-	            <div>
-	         		<button class="form-button"><a href="#page-user-profile">Save</a></button>
-	        	</div>
-        	</div>
-		</div>
-	</section>
+  <section data-role="page" id="page-user-edit">
+      <header data-role="header">
+         <h1>User Edit</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-submituseredit">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         
+         <form class="fill-parent display-flex flex-vertical" id="user-edit-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  
+               </div>
+            </div>
+         </form>
+      </div>
+  </section>
+
+<!-- edit user settings page -->
+<section data-role="page" id="page-user-settings">
+      <header data-role="header">
+         <h1>User Edit</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main" class="overscroll">
+         <ul class="nav-page-links">
+            <li>
+               <a href="#page-user-edit">Update User Info</a>
+            </li>
+            <li>
+               <a href="#page-user-edit-password">Change Password</a>
+            </li>
+            <li>
+               <a href="#" class="js-logout">Logout</a>
+            </li>
+         </ul>
+      </div>
+   </section>
 
 
 <!-- DOG PAGES -->
@@ -239,16 +231,16 @@
   <section data-role="page" id="page-dog-profile">
     <div data-role="main" class="display-flex flex-vertical">
       <div class="dog-profile-top">
-        <img src="" alt="">
+        <img src="https://via.placeholder.com/600x600?text=DOG" alt="" style="width:100%;height:100%;object-fit:cover">
       </div>
       <div class="dog-profile-middle">
         <ul class="nav">
-          <li>Map</li>
+          <li class="active">Map</li>
           <li>Description</li>
         </ul>
       </div>
       <div class="dog-profile-bottom">
-        <div class="map"></div>
+        <div class="map active"></div>
         <div class="description"></div>
       </div>
     </div>
@@ -260,6 +252,31 @@
         <li><a href="#page-edit-dog-profile">Edit</a></li>
       </ul>
     </header>
+  </section>
+
+<!-- edit dog profile page -->
+  <section data-role="page" id="page-edit-dog-profile">
+    <header data-role="header">
+      <h1>EDIT DOG</h1>
+      <ul>
+        <li><a href="#" data-rel="back">Cancel</a></li>
+      </ul>
+    </header>
+
+    <div data-role="main">
+      <form class="fill-parent display-flex flex-vertical" id="dog-edit-form" data-ajax="false">
+        <div class="flex-stretch position-relative">
+          <div class="fill-parent overscroll position-absolute padding-md">
+            
+          </div>
+        </div>
+
+        <div class="flex-none padding-md">
+          <button class="form-button"><a href="#page-list">Save</a></button>
+        </div>
+
+      </form>
+    </div>
   </section>
 
 
@@ -275,118 +292,17 @@
          <form class="fill-parent display-flex flex-vertical" id="dog-add-form" data-ajax="false">
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
-                  <div class="form-control">
-                     <label for="dog-add-name" class="form-label">Name</label>
-                     <input type="text" id="dog-add-name" class="form-input" data-role="none" placeholder="Name">
-                  </div>
-                  <div class="form-control">
-                     <label for="dog-add-type" class="form-label">Temperament</label>
-                     <input type="text" id="dog-add-termperament" class="form-input" data-role="none" placeholder="Name">
-                  </div>
-                  <div class="form-control">
-                     <label for="dog-add-breed" class="form-label">Breed</label>
-                     <input type="text" id="dog-add-breed" class="form-input" data-role="none" placeholder="Name">
-                  </div>
+                  
                </div>
             </div>
             <div class="flex-none padding-md">
-               <!-- <button type="submit" class="form-button">Save</button> -->
-               <a href="#page-list" class="form-button">Save</a>
+               <button type="submit" class="form-button">Save</button>
+              <!--  <a href="#page-list" class="form-button">Save</a> -->
             </div>
          </form>
       </div>
    </section>
 
-<!-- choose dog page -->
-   <section data-role="page" id="page-location-choose-dog">
-      <header data-role="header">
-         <h1>Choose Dog</h1>
-         <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
-<!--             <li class="flex-stretch"></li>
-            <li><a href="#page-location-set-location">Next</a></li> -->
-         </ul>
-      </header>
-      <div data-role="main">
-         Choose Dog
-
-         <div class="flex-none padding-md">
-         	<a href="#page-location-set-location" class="form-button">Next</a>
-         </div>
-
-
-      </div>
-   </section>
-
-<!-- choose location page -->
-      <section data-role="page" id="page-location-set-location">
-      <header data-role="header">
-         <h1>Set Location</h1>
-         <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
-<!--             <li class="flex-stretch"></li>
-            <li><a href="#page-location-description">Next</a></li> -->
-         </ul>
-      </header>
-      <div data-role="main">
-         Set Location
-
-
-      	<div class="flex-none padding-md">
-        	<a href="#page-location-description" class="form-button">Next</a>
-        </div>
-      </div>
-   </section>
-
-<!-- description page -->
-      <section data-role="page" id="page-location-description">
-      <header data-role="header">
-         <h1>Description</h1>
-         <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
-<!--             <li class="flex-stretch"></li>
-            <li><a href="#page-list">Save</a></li> -->
-         </ul>
-      </header>
-      <div data-role="main">
-         Description
-
-
-        <div class="flex-none padding-md">
-        	<a href="#page-list" class="form-button">Save</a>
-        </div>
-      </div>
-   </section>
-
-<!-- edit dog profile page -->
-	<section data-role="page" id="page-edit-dog-profile">
-		<header data-role="header">
-			<h1>EDIT DOG</h1>
-			<ul>
-				<li><a href="#" data-rel="back">Cancel</a></li>
-			</ul>
-		</header>
-		<div data-role="main">
-			<div class="padding-md">
-				<div class="form-control">
-	               <label class="form-label"> Edit Name</label>
-	               <input class="form-input" type="text" id="dog-edit-name" data-role="none" placeholder="Name">
-	            </div>
-	            <div class="form-control">
-	               <label class="form-label">Edit Temperament</label>
-	               <input class="form-input" type="text" id="dog-edit-temperamant" data-role="none" placeholder="Temperament">
-	            </div>
-	             <div class="form-control">
-	               <label class="form-label">Edit Breed</label>
-	               <input class="form-input" type="text" id="dog-edit-breed" data-role="none" placeholder="Breed">
-	            </div>
-
-	            <div>
-	         		<button class="form-button"><a href="#page-list">Save</a></button>
-	        	</div>
-	        </div>
-		</div>
-	</section>
 
 <script type="text/template" id="footer-template">
 	 <ul class="nav-icon-set">

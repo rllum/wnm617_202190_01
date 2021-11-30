@@ -66,6 +66,11 @@ function makeStatment($data) {
 		// case "locations_all":
 		// 	return makeQuery($c,"SELECT * FROM `track_locations`",$p);
 
+
+		//CRUD
+
+		/* READ */
+
 		case "user_by_id":
 			return makeQuery($c,"SELECT id,username,name,email,img FROM `track_users` WHERE `id`=?",$p);
 
@@ -102,6 +107,56 @@ function makeStatment($data) {
 				WHERE a.user_id=?
 				ORDER BY l.dog_id, l.date_create DESC 
 				",$p);
+
+		/* CREATE */
+
+		case "insert_user":
+			$r = makeQuery($c,"SELECT id FROM `track_users` WHERE `username` = ? OR `email` = ?",$p);
+			if(count($r['result'])) return ["error"=>"Username or Email already exists"];
+
+			$r = makeQuery($c, "INSERT INTO 
+				`track_users`
+				(`username`, `email`, `password`, `img`, `date_create())
+				VALUES 
+				(?,?, md5(?),'http://via.placeholder.com/400/?text=USER', NOW())
+				",$p,false);
+			return ["id" => $c->lastInsertId()];
+
+
+		case "insert_dog":
+			$r = makeQuery($c, "INSERT INTO 
+				`track_dogs`
+				(`user_id`, `name`, `breed`, `temperament`, `description`, `img`, `date_create`)
+				VALUES 
+				(?,?,?,?,?, 'http://via.placeholder.com/400/?text=DOG', NOW())
+				",$p,false);
+			return ["id" => $c->lastInsertId()];
+
+		case "insert_location":
+			$r = makeQuery($c, "INSERT INTO 
+				`track_locations`
+				(`dog_id`, `lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
+				VALUES 
+				(?,?,?,?,'http://via.placeholder.com/400/?text=PHOTO', 'http://via.placeholder.com/400/?text=ICON', NOW())
+				",$p,false);
+			return ["id" => $c->lastInsertId()];
+
+
+
+		/* UPDATE */
+
+		case "update_dog":
+			$r = makeQuery($c, "UPDATE 
+				`track_dogs`
+				SET 
+					`name` = ?,
+					`breed` = ?,
+					`temperament` = ?,
+					`description` = ?
+				WHERE `id` = ?
+				",$p,false);
+			return ["result" => "sucess"];
+
 
 			default: return ["error"=>"No Matched Type"];
 	}

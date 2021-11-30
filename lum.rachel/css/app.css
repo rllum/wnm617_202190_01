@@ -536,17 +536,38 @@ a{
 	height: 40vh;
 }
 .dog-profile-middle{
-	height: 10%;
 	background-color: white;
 }
 
 .dog-profile-bottom{
-	flex: 1 1 100%;
+	flex: 1 1 auto;
 	position: relative;
+}
+
+.dog-profile-bottom .map,
+.dog-profile-bottom .description{
+	display: none;
+}
+
+.dog-profile-bottom .map.active,
+.dog-profile-bottom .description.active{
+	display: block;
+}
+
+.dog-profile-middle li.active{
+	background-color: var(--color-accent-light);
 }
 
 
 
+.dog-popup-image,
+.dog-popup-body {
+	pointer-events: none;
+}
+
+.dog-popup-image img{
+	max-width: 50px;
+}
 
 
 

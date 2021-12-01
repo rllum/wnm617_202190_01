@@ -19,7 +19,7 @@ const makeUserProfile = (o) => `
 		<img src="${o.img}" alt="">
 	</div>
 
-	<div>
+	<div> 
 		<h2>${o.name}</h2>
 		<h3>&commat;${o.username}</h3>
 		<div><a href="#page-user-settings">Settings</a></div>
@@ -32,10 +32,11 @@ const makeDogProfile = (o) => `
       <h2>${o.name}</h2>
       <div><strong>breed</strong>${o.breed}</div>
       <div><strong>temperament</strong>${o.temperament}</div>
-      <div><strong>description</strong>${o.description}</div>
+      <div><strong>description</strong><p>${o.description}</p></div>
    </div>
 
 `;
+
 
 const makeDogPopup = o => `
 	<div class="display-flex dog-jump" data-id="${o.dog_id}">

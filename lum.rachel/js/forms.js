@@ -25,11 +25,24 @@ const dogEditForm = async() => {
 
 	let r = await query({
 		type:'update_dog',
-		params:[,name,breed,temperament,description,sessionStorage.dogId]
+		params:[name,breed,temperament,description,sessionStorage.dogId]
 	});
 
 	if(r.error) throw(r.error);
 
 	history.go(-1);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 

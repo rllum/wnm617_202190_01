@@ -146,7 +146,7 @@ function makeStatment($data) {
 		/* UPDATE */
 
 		case "update_dog":
-			$r = makeQuery($c, "UPDATE 
+			$r = makeQuery($c, "UPDATE
 				`track_dogs`
 				SET 
 					`name` = ?,
@@ -155,7 +155,7 @@ function makeStatment($data) {
 					`description` = ?
 				WHERE `id` = ?
 				",$p,false);
-			return ["result" => "sucess"];
+			return ["result" => "success"];
 
 
 			default: return ["error"=>"No Matched Type"];

@@ -1,6 +1,6 @@
 
 // DOCUMENT READY
-$(()=>{
+$(()=>{ 
 
    checkUserId();
 
@@ -40,7 +40,7 @@ $(()=>{
       dogAddForm();
    })
 
-   .on("submit", "#dog-edit-form", function(e){
+   .on("submit", "#dog-edit-form", function(e) {
       e.preventDefault();
       dogEditForm();
    })

@@ -98,9 +98,9 @@
    </section>
 
    <!-- choose dog page -->
-    <section data-role="page" id="page-location-choose-dog">
+      <section data-role="page" id="page-location-choose-dog">
       <header data-role="header">
-         <h1>Choose Animal</h1>
+         <h1>Choose Dog</h1>
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
@@ -110,12 +110,15 @@
       <div data-role="main" style="padding:1em">
          <input type="hidden" id="location-dog-choice">
          <div>
-            <a href="#page-dog-add">Make a new animal</a>
+            <a href="#page-add-dog">Make a new dog</a>
          </div>
          <p>Or</p>
-         <div class="form-select location-dog-choice-select"></div>
+         <div class="form-select location-dog-choice-select">
+           <select id="location-dog-choice" data-role="none"></select>
+         </div>
       </div>
    </section>
+
 
 <!-- choose location page -->
     <section data-role="page" id="page-location-set-location">
@@ -128,7 +131,9 @@
          </ul>
       </header>
       <div data-role="main">
-         Set Location
+        <input type="hidden" id="location-lat">
+        <input type="hidden" id="location-lng">
+         <div class="map"></div>
       </div>
    </section>
 
@@ -139,35 +144,44 @@
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" class="js-navigate-back">Save</a></li>
+            <li><a href="#" class="js-submitlocationform">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
-         <form action="" style="padding:1em">
+         <form action="" style="padding:1em" id="location-description-form">
             <input type="hidden" id="location-navigateback" value="-3">
 
             <div class="form-control">
-               <label for="location-description" class="form-label">Describe the animal</label>
-               <textarea id="location-description" class="form-input" data-role="none" placeholder="What did it look like?"></textarea>
+               <label for="location-description" class="form-label">Describe the Dog</label>
+               <textarea id="location-description" class="form-input" data-role="none" placeholder="What did it look like? How did ot behave?"></textarea>
             </div>
+<!--             <div class="flex-none padding-md">
+          <button type="submit" class="form-button">Save</button>
+        </div> -->
          </form>
       </div>
   </section>
 
 <!-- list page -->
-	<section data-role="page" id="page-list">
-		<div data-role="main">
-			
-			<div class="overscroll floater fill-parent">
-				<div class="dog-list"></div>	
-			</div>
+    <section data-role="page" id="page-list">
+      <div data-role="main" class="display-flex flex-vertical">
 
-			<div class="floater bottom right">
-            	<a href="#page-add-dog" class="btn-circle">&plus;</a>
-         	</div>
-      	</div>
+         <div class="search-bar header flex-none">
+            <form data-ajax="false" id="list-search-form" class="hotdog medium">
+               <input type="search" data-role="none" placeholder="Search for a dog. Any dog!">
+            </form>
+         </div>
+         <div class="position-relative flex-stretch">
+            <div class="overscroll floater fill-parent">
+               <div class="dog-list"></div>
+            </div>
+         </div>
 
-      	<footer data-role="footer" data-template="#footer-template"></footer>
+         <div class="floater bottom right">
+            <a href="#page-add-dog" class="btn-circle">&plus;</a>
+         </div>
+      </div>
+      <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
    
 
@@ -179,27 +193,6 @@
       <footer data-role="footer" data-template="#footer-template"></footer>
   </section>
 
-<!-- edit user profile page -->
-  <section data-role="page" id="page-user-edit">
-      <header data-role="header">
-         <h1>User Edit</h1>
-         <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
-            <li class="flex-stretch"></li>
-            <li><a href="#" class="js-submituseredit">Save</a></li>
-         </ul>
-      </header>
-      <div data-role="main">
-         
-         <form class="fill-parent display-flex flex-vertical" id="user-edit-form" data-ajax="false">
-            <div class="flex-stretch position-relative">
-               <div class="fill-parent overscroll position-absolute padding-md">
-                  
-               </div>
-            </div>
-         </form>
-      </div>
-  </section>
 
 <!-- edit user settings page -->
 <section data-role="page" id="page-user-settings">
@@ -224,6 +217,58 @@
       </div>
    </section>
 
+   <!-- edit user profile page -->
+  <section data-role="page" id="page-user-edit">
+      <header data-role="header">
+         <h1>User Edit</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-submituseredit">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         
+         <form class="fill-parent display-flex flex-vertical" id="user-edit-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  
+               </div>
+            </div>
+         </form>
+      </div>
+  </section>
+
+
+   <!-- edit user password page -->
+  <section data-role="page" id="page-user-edit-password">
+      <header data-role="header">
+         <h1>Edit Password</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-submituseredit">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         
+         <form class="fill-parent display-flex flex-vertical" id="user-edit=password-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  <div class="form-control">
+                      <label for="user-password-initial" class="form-label">Type Password</label>
+                        <input type="password" id="user-password-initial" class="form-input" data-role="none" placeholder="Type A New Password">
+                  </div>
+
+                  <div class="form-control">
+                      <label for="user-password-confirm" class="form-label">Confirm Password</label>
+                        <input type="password" id="user-password-confirm" class="form-input" data-role="none" placeholder="Confirm New Password">
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+  </section>
 
 <!-- DOG PAGES -->
 
@@ -240,8 +285,16 @@
         </ul>
       </div>
       <div class="dog-profile-bottom">
-        <div class="map active"></div>
-        <div class="description"></div>
+        <div class="section active">
+          <div class="map"></div>
+              <div class="floater bottom right">
+                <a href="#page-location-set-location" class="btn-circle js-choosedog" data-setnavigateback="-2">&plus;</a>
+              </div>
+        </div>
+      </div>
+        <div class="section">
+          <div class="description"></div>
+        </div>
       </div>
     </div>
 

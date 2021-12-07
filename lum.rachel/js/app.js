@@ -18,6 +18,9 @@ $(()=>{
          case "page-dog-profile": DogProfilePage(); break;
          case "page-edit-dog-profile": DogEditPage(); break;
          case "page-add-dog": DogAddPage(); break;
+         case "page-location-set-location": LocationSetLocationPage(); break;
+         case "page-location-choose-dog": LocationChooseDogPage(); break;
+
       }
    })
 
@@ -46,6 +49,29 @@ $(()=>{
    })
 
 
+  .on("submit", "#list-search-form", function(e) {
+      e.preventDefault();
+      let s = $(this).find("input").val();
+      checkSearchForm(s);
+   })
+
+
+
+   //FORM ANCHOR CLICKS
+
+   // .on("click",".js-submituseredit",function(e) {
+   //    e.preventDefault();
+   //    userEditForm();
+   // })
+   // .on("click",".js-submituserpassword",function(e) {
+   //    e.preventDefault();
+   //    userEditPasswordForm();
+   // })
+   .on("click",".js-submitlocationform",function(e){
+      e.preventDefault();
+      locationAddForm();
+   })
+
 
 
    // ANCHOR CLICKS
@@ -70,6 +96,9 @@ $(()=>{
       window.history.go(+$("#location-navigateback").val());
    })
 
+   .on("click",".js-choosedog",function(e){
+      $("#location-dog-choice").val(sessionStorage.dogId);
+   })
 
 
    .on("click",".dog-profile-middle li",function(e){

@@ -108,6 +108,17 @@ function makeStatment($data) {
 				ORDER BY l.dog_id, l.date_create DESC 
 				",$p);
 
+		case "search_dogs":
+			$p = ["%$p[0]%",$p[1]];
+			return makeQuery($c,"SELECT *
+				FROM `track_dogs`
+				WHERE
+				`name` LIKE ? AND
+				`user_id` = ?
+			",$p);
+
+
+
 		/* CREATE */
 
 		case "insert_user":
@@ -145,6 +156,28 @@ function makeStatment($data) {
 
 		/* UPDATE */
 
+		case "update_user":
+			$r = makeQuery($c, "UPDATE
+				`track_users`
+				SET 
+					`username` = ?,
+					`name` = ?,
+					`email` = ?
+				WHERE `id` = ?
+				",$p,false);
+			return ["result" => "success"];
+
+
+		case "update_user_password":
+			$r = makeQuery($c, "UPDATE
+				`track_users`
+				SET 
+					`password` = md5(?)
+				WHERE `id` = ?
+				",$p,false);
+			return ["result" => "success"];
+
+
 		case "update_dog":
 			$r = makeQuery($c, "UPDATE
 				`track_dogs`
@@ -156,6 +189,16 @@ function makeStatment($data) {
 				WHERE `id` = ?
 				",$p,false);
 			return ["result" => "success"];
+
+
+		// case "update_location":
+		// 	$r = makeQuery($c, "UPDATE
+		// 		`track_locations`
+		// 		SET
+		// 			`description` = ?
+		// 		WHERE `id` = ?
+		// 		",$p,false);
+		// 	return ["result" => "success"];
 
 
 			default: return ["error"=>"No Matched Type"];

@@ -129,6 +129,17 @@ ${FormControlInput({
 `;
 
 
+const makeDogChoiceSelect = ({dogs,name,chosen=0}) => `
+<select id="${name}">
+   ${templater(o=>`
+      <option value="${o.id}" ${o.id===chosen?'selected':''}>${o.name}</option>
+   `)(dogs)}
+</select>
+`;
+
+const makeDogListSet = (arr,target="#page-list .dog-list") => {
+   $(target).html(makeDogList(arr));
+}
 
 
 

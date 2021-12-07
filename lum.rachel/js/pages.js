@@ -14,14 +14,13 @@ const resultQuery = async (options) => {
 
 
 const ListPage = async() => {
-	let result = await resultQuery({type:'dogs_by_user_id',params:[sessionStorage.userId]}
-		);
-	
+		let dogs = await resultQuery({
+		type:'dogs_by_user_id',
+		params:[sessionStorage.userId]
+	});
 
 
-	console.log(result);
-
-	$("#page-list .dog-list").html(makeDogList(result));
+	makeDogListSet(dogs);
 }
 
 
@@ -79,7 +78,6 @@ const UserEditPage = async() => {
 }
 
 
-
 const DogProfilePage = async() => {
 		let dog_result = await resultQuery({
 			type:'dog_by_id',
@@ -129,6 +127,34 @@ const DogAddPage = async() => {
 }
 
 
+const LocationSetLocationPage = async() => {
+	let mapEl = await makeMap("#page-location-set-location .map");
+	makeMarkers(mapEl,[]);
+
+	mapEl.data("map").addListener("click",function(e){
+		$("#location-lat").val(e.latLng.lat())
+		$("#location-lng").val(e.latLng.lng())
+		makeMarkers(mapEl,[e.latLng]);
+	})
+}
+
+
+const LocationChooseDogPage = async() => {
+   let result = await resultQuery({
+      type:'dogs_by_user_id',
+      params:[sessionStorage.userId]
+   });
+
+   console.log(result)
+
+   $(".location-dog-choice-select").html(
+      makeDogChoiceSelect({
+         dogs:result,
+         name:'location-dog-choice-select'
+      })
+   );
+   $("#location-dog-choice").val(result[0].id);
+}
 
 
 

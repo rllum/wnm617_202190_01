@@ -143,6 +143,7 @@ a{
 	overflow: hidden;
 }
 
+.header,
 [data-role="header"],
 [data-role="footer"]{
 	flex: none;
@@ -155,6 +156,7 @@ a{
 	overflow: hidden;
 }
 
+.header ul,
 [data-role="header"] ul,
 [data-role="footer"] ul{
 	display: flex;
@@ -171,13 +173,16 @@ a{
 	color: white;
 }
 
-[data-role="header"] a{
-	padding: 0 1em;
-}
 
+.header a,
 [data-role="header"] a,
 [data-role="footer"] a{
 	display: block;
+}
+
+.header a,
+[data-role="header"] a{
+	padding: 0 1em;
 }
 
 .ui-header .ui-title{
@@ -257,6 +262,28 @@ a{
 	text-decoration: none;
 	color: white;
 	-webkit-appearance: none;
+}
+
+.form-select select {
+    background-color: var(--color-neutral-light);
+    border-width: 0;
+    padding: 0.5em 1em;
+    font: inherit;
+    border-radius: 4px;
+    width: 100%;
+    -webkit-appearance: none;
+}
+.form-select {
+   position: relative;
+}
+.form-select::after {
+   content: '▼';
+   position: absolute;
+   right: 0.5em;
+   top: 50%;
+   transform: translateY(-50%);
+   font-size: 0.8em;
+   color: var(--color-neutral-medium);
 }
 
 #signup-form .form-input{
@@ -544,16 +571,12 @@ a{
 	position: relative;
 }
 
-.dog-profile-bottom .map,
-.dog-profile-bottom .description{
-	display: none;
+.dog-profile-bottom .section {
+   display: none;
 }
-
-.dog-profile-bottom .map.active,
-.dog-profile-bottom .description.active{
-	display: block;
+.dog-profile-bottom .section.active {
+   display: block;
 }
-
 .dog-profile-middle li.active{
 	background-color: var(--color-accent-light);
 }
@@ -568,6 +591,51 @@ a{
 .dog-popup-image img{
 	max-width: 50px;
 }
+
+
+/*SEARCH BAR*/
+
+.search-bar{
+	padding: 0.2em 0.5em;
+}
+
+.hotdog{
+	padding: 0.5em 1em;
+	display: inline-flex;
+	width: 100%;
+	border-radius: 2em;
+	position: relative;
+}
+
+.hotdog.white{
+	background-color: white;
+}
+
+.hotdog.medium{
+	background-color: var(--color-neutral-light);
+}
+
+.hotdog input{
+	border-width: 0;
+	background-color: transparent;
+	border-radius: 0;
+	-webkit-appearance: none;
+	font: inherit;
+	color: inherit;
+	outline: 0;
+	flex: 1 1 auto;
+	padding: 0;
+	margin: 0;
+	line-height: 1;
+}
+
+
+/*.search-bar .hotdog{
+	height: 100%;
+}*/
+
+
+
 
 
 

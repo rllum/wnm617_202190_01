@@ -50,6 +50,21 @@ function makeQuery($c,$ps,$p,$makeResults=true) {
 	}
 }
 
+// function makeUpload($file,$folder) {
+// 	$filename = microtime(true) . "_" . $_FILES[$file]['name'];
+
+// 	if(@move_uploaded_file(
+// 		$_FILES[$file]['tmp_name'],
+// 		$folder.$filename
+// 	)) return ['result'=>$filename];
+
+// 	else return [
+// 		"error"=>"File Upload Failed"
+// 		"_FILES"=>$_FILES,
+// 		"filename"=>$filename
+// 	];
+// }
+
 function makeStatment($data) {
 	try{
 		$c = makeConn();
@@ -206,12 +221,13 @@ function makeStatment($data) {
 
 	} catch(Exception $e) {
 		return ["error"=>"Bad Data"];
-	}
-
-
-
-	
+	}	
 }
+
+// if(!empty($_FILES)) {
+// 	$r = makeUpload("image","../uploads/");
+// 	die(json_encode($r));
+// }
 
 $data = json_decode(file_get_contents("php://input"));
 

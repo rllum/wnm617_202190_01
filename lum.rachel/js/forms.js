@@ -4,6 +4,7 @@ const dogAddForm = async() => {
 	let breed = $("#dog-add-breed").val();
 	let temperament = $("#dog-add-temperament").val();
 	let description = $("#dog-add-description").val();
+	// let image = $("#dog-add-image").val();
 
 	let r = await query({
 		type:'insert_dog',
@@ -35,12 +36,12 @@ const dogEditForm = async() => {
 
 
 const userEditForm = async() => {
-	let name = $("#user-edit-username").val();
-	let breed = $("#user-edit-name").val();
-	let temperament = $("#user-edit-email").val();
+	let username = $("#user-edit-username").val();
+	let name = $("#user-edit-name").val();
+	let email = $("#user-edit-email").val();
 
 	let r = await query({
-		type:'update_dog',
+		type:'update_user',
 		params:[username,name,email,sessionStorage.userId]
 	});
 
@@ -48,6 +49,45 @@ const userEditForm = async() => {
 
 	history.go(-1);
 }
+
+
+
+const checkSignup = async () => {
+   let email = $("#signup-email").val();
+   let username = $("#signup-username").val();
+   let password = $("#signup-password").val();
+   let confirm = $("#signup-password2").val();
+
+   if(password!=confirm)
+      throw("Passwords don't match: You should handle this in some way.");
+
+   let r = await query({
+      type:'insert_user',
+      params:[username,email,password]
+   });
+
+   if(r.error) throw(r.error);
+
+   sessionStorage.userId = r.id;
+
+   $.mobile.navigate("#page-signup2");
+}
+
+
+
+// const checkSignup2 = async () => {
+//    let name = $("#signup-name").val();
+//    let image = $("#signup-image-name").val();
+
+//    let r = await query({
+//       type:'update_user_onboard',
+//       params:[name,image,sessionStorage.userId]
+//    });
+
+//    if(r.error) throw(r.error);
+
+//    $.mobile.navigate("#page-list");
+// }
 
 
 
@@ -66,7 +106,6 @@ const userEditPasswordForm = async() => {
 
 	history.go(-1);
 }
-
 
 const locationAddForm = async () => {
    let dog = $("#location-dog-choice").val();

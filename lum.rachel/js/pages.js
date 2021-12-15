@@ -85,7 +85,7 @@ const DogProfilePage = async() => {
 		});
 
 		let[dog] = dog_result;
-			$(".dog-profile-top img").attr("src",dog.img);
+			$(".dog-profile-top>img").attr("src",dog.img);
 			$(".dog-profile-bottom .description").html(makeDogProfile(dog));
 
 
@@ -96,6 +96,16 @@ const DogProfilePage = async() => {
 
 	let mapEl = await makeMap("#page-dog-profile .map");
 	makeMarkers(mapEl,locations_result);
+
+	let {infoWindow,map,markers} = mapEl.data();
+	markers.forEach((o,i)=> {
+		o.addListener("click",function(){
+			// Info Window
+			infoWindow.open(map,o);
+			infoWindow.setContent(makeDogLocationPopup(locations_result[i]))
+
+		})
+	});
 }
 
 

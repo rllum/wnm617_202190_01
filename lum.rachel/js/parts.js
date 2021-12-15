@@ -19,10 +19,10 @@ const makeUserProfile = (o) => `
 		<img src="${o.img}" alt="">
 	</div>
 
-	<div> 
+	<div class="user-profile-info"> 
 		<h2>${o.name}</h2>
 		<h3>&commat;${o.username}</h3>
-		<div><a href="#page-user-settings">Settings</a></div>
+		<div class="user-settings"><a href="#page-user-settings">User Settings</a></div>
 	</div>
 
 `;
@@ -30,9 +30,9 @@ const makeUserProfile = (o) => `
 const makeDogProfile = (o) => `
    <div>
       <h2>${o.name}</h2>
-      <div><strong>breed</strong>${o.breed}</div>
-      <div><strong>temperament</strong>${o.temperament}</div>
-      <div><strong>description</strong><p>${o.description}</p></div>
+      <div><strong>breed:</strong> ${o.breed}</div>
+      <div><strong>temperament:</strong> ${o.temperament}</div>
+      <div><strong>description:</strong><p> ${o.description}</p></div>
    </div>
 
 `;
@@ -49,6 +49,14 @@ const makeDogPopup = o => `
 			<div class="dog-popup-temperament"><strong>Temperament</strong> ${o.temperament}</div>
 		</div>
 	</div>
+`;
+
+const makeDogLocationPopup = o => `
+   <div class="display-flex dog-jump" data-id="${o.id}">
+      <div class="flex-stretch dog-list-item-body padding-md">
+         <div class="dog-popup-name"> ${o.description}</div>
+      </div>
+   </div>
 `;
 
 const FormControlInput = ({namespace,name,displayname,type,placeholder,value}) => `
@@ -100,6 +108,10 @@ ${FormControlTextarea({
 })}
 `;
 
+// <div class="form-control">
+//    <label for="dog-add-image" class="form-label">Add Image</label>
+//    <input id="dog-add-image" type="file" data-role="none">
+// </div>
 
 const makeUserFormInputs = (o,namespace) => `
 ${FormControlInput({

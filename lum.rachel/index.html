@@ -53,11 +53,21 @@
 <!-- signup page -->
 	 <section data-role="page" id="page-signup">
       <div data-role="main" class="display-flex flex-vertical">
+        <img class="join-logo" src="img/joinus.png" alt="logo">
          <div class="flex-stretch"></div>
          <form data-ajax="false" class="form signin-form" id="signup-form" style="padding:10px">
+<!--             <div class="form-control">
+               <label for="signup-name" class="form-label">Name</label>
+               <input class="form-input" type="text" id="signup-name" data-role="none" placeholder="Name">
+            </div> -->
+
             <div class="form-control">
                <label for="signup-email" class="form-label">Email Address</label>
                <input class="form-input" type="text" id="signup-email" data-role="none" placeholder="Email">
+            </div>
+            <div class="form-control">
+               <label for="signup-username" class="form-label">Username</label>
+               <input class="form-input" type="text" id="signup-username" data-role="none" placeholder="Username">
             </div>
             <div class="form-control">
                <label for="signup-password" class="form-label">New Password</label>
@@ -72,6 +82,29 @@
             </div>
             <div class="form-control small centered">
                Already have an account? <a href="#page-signin">Sign In</a>
+            </div>
+         </form>
+         <div class="flex-stretch"></div>
+      </div>
+   </section>
+
+<!-- second sign up page -->
+    <section data-role="page" id="page-signup2">
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="flex-stretch"></div>
+         <form data-ajax="false" class="form signin-form" id="signup-form2" style="padding:10px">
+            <div class="form-control">
+               <label for="signup-name" class="form-label">Name</label>
+               <input class="form-input" type="text" id="signup-name" data-role="none" placeholder="Your Name">
+            </div>
+            <div class="form-control">
+               <input type="hidden" id="signup-image-name">
+               <label class="image-picker thumbnail">
+                  <input type="file" data-role="none">
+               </label>
+            </div>
+            <div class="form-control">
+               <input type="submit" value="Start" class="form-button" data-role="none">
             </div>
          </form>
          <div class="flex-stretch"></div>
@@ -98,7 +131,7 @@
    </section>
 
    <!-- choose dog page -->
-      <section data-role="page" id="page-location-choose-dog">
+   <section data-role="page" id="page-location-choose-dog">
       <header data-role="header">
          <h1>Choose Dog</h1>
          <ul>
@@ -113,9 +146,7 @@
             <a href="#page-add-dog">Make a new dog</a>
          </div>
          <p>Or</p>
-         <div class="form-select location-dog-choice-select">
-           <select id="location-dog-choice" data-role="none"></select>
-         </div>
+         <div class="form-select location-dog-choice-select"></div>
       </div>
    </section>
 
@@ -155,9 +186,6 @@
                <label for="location-description" class="form-label">Describe the Dog</label>
                <textarea id="location-description" class="form-input" data-role="none" placeholder="What did it look like? How did ot behave?"></textarea>
             </div>
-<!--             <div class="flex-none padding-md">
-          <button type="submit" class="form-button">Save</button>
-        </div> -->
          </form>
       </div>
   </section>
@@ -204,15 +232,10 @@
       </header>
       <div data-role="main" class="overscroll">
          <ul class="nav-page-links">
-            <li>
-               <a href="#page-user-edit">Update User Info</a>
-            </li>
-            <li>
-               <a href="#page-user-edit-password">Change Password</a>
-            </li>
-            <li>
-               <a href="#" class="js-logout">Logout</a>
-            </li>
+            <li><a href="#page-user-edit">Update User Info</a></li>
+            <li><a href="#page-user-edit-password">Change Password</a></li>
+            <li><a href="#page-user-upload">Change Photo</a></li>
+            <li><a href="#" class="js-logout">Logout</a></li>
          </ul>
       </div>
    </section>
@@ -231,8 +254,7 @@
          
          <form class="fill-parent display-flex flex-vertical" id="user-edit-form" data-ajax="false">
             <div class="flex-stretch position-relative">
-               <div class="fill-parent overscroll position-absolute padding-md">
-                  
+               <div class="fill-parent overscroll position-absolute padding-md"> 
                </div>
             </div>
          </form>
@@ -247,7 +269,7 @@
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" class="js-submituseredit">Save</a></li>
+            <li><a href="#" class="js-submituserpassword">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
@@ -270,6 +292,24 @@
       </div>
   </section>
 
+  <!-- User upload page -->
+    <section data-role="page" id="page-user-upload">
+      <header data-role="header">
+         <h1>Upload Photo</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-submituserupload">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <input type="hidden" id="user-upload-filename">
+         <label class="image-picker replace">
+           <input type="file" data-role="none">
+         </label>
+      </div>
+  </section>
+
 <!-- DOG PAGES -->
 
 <!-- dog profile page -->
@@ -277,6 +317,11 @@
     <div data-role="main" class="display-flex flex-vertical">
       <div class="dog-profile-top">
         <img src="https://via.placeholder.com/600x600?text=DOG" alt="" style="width:100%;height:100%;object-fit:cover">
+        <div class="floater bottom right">
+          <a href="#page-dog-edit-upload" style="font-size:1.25em">
+            <img src="img/icons/camera.svg" class="icon" alt="">
+          </a>
+        </div>
       </div>
       <div class="dog-profile-middle">
         <ul class="nav">
@@ -291,12 +336,11 @@
                 <a href="#page-location-set-location" class="btn-circle js-choosedog" data-setnavigateback="-2">&plus;</a>
               </div>
         </div>
-      </div>
-        <div class="section">
+        <div class="section padding-lg">
           <div class="description"></div>
         </div>
+        </div>
       </div>
-    </div>
 
     <header data-role="header" class="floating-header">
       <ul>
@@ -307,29 +351,50 @@
     </header>
   </section>
 
+
+    <!-- Dog edit upload page -->
+    <section data-role="page" id="page-dog-edit-upload">
+      <header data-role="header">
+         <h1>Upload Photo</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-submitdogupload">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <input type="hidden" id="dog-upload-filename">
+         <label class="image-picker replace">
+           <input type="file" data-role="none">
+         </label>
+      </div>
+  </section>
+
 <!-- edit dog profile page -->
   <section data-role="page" id="page-edit-dog-profile">
     <header data-role="header">
       <h1>EDIT DOG</h1>
-      <ul>
-        <li><a href="#" data-rel="back">Cancel</a></li>
-      </ul>
+          <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-edit-dog">Save</a></li>
+         </ul>
     </header>
 
     <div data-role="main">
       <form class="fill-parent display-flex flex-vertical" id="dog-edit-form" data-ajax="false">
+        <div style="padding:0.5rem 1rem;text-align:right;font-size:0.9em;">
+          <a href="#" class="js-dog-delete">Delete Dog?</a>
+        </div>
         <div class="flex-stretch position-relative">
-          <div class="fill-parent overscroll position-absolute padding-md">
-            
+          <div class="fill-parent overscroll position-absolute padding-md"> 
           </div>
         </div>
-
-        <div class="flex-none padding-md">
-          <button type="submit" class="form-button">Save</button>
-        </div>
-
       </form>
     </div>
+<!--     <div style="padding:0.5rem 1rem;text-align:left;font-size:0.9em;">
+        <a href="#" class="js-dog-delete">Delete Dog?</a>
+    </div> -->
   </section>
 
 
@@ -337,24 +402,49 @@
     <section data-role="page" id="page-add-dog">
       <header data-role="header">
          <h1>Add Dog</h1>
-         <ul>
-            <li><a href="#" data-rel="back">Cancel</a></li>
+            <ul>
+              <li><a href="#" data-rel="back">Back</a></li>
+              <li class="flex-stretch"></li>
+              <li><a href="#" class="js-add-dog">Save</a></li>
          </ul>
       </header>
         <div data-role="main">
          <form class="fill-parent display-flex flex-vertical" id="dog-add-form" data-ajax="false">
+<!--             <div style="padding:0.5rem 1rem;text-align:right;font-size:0.9em;">
+                <a href="#page-dog-add-upload">Add Image</a>
+            </div> -->
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
                   
                </div>
             </div>
-            <div class="flex-none padding-md">
+            <!-- <div class="flex-none padding-md">
                <button type="submit" class="form-button">Save</button>
-              <!--  <a href="#page-list" class="form-button">Save</a> -->
-            </div>
+               <a href="#page-list" class="form-button">Save</a>
+            </div> -->
          </form>
       </div>
    </section>
+
+     <!-- Add Dog upload page -->
+<!--     <section data-role="page" id="page-dog-add-upload">
+      <header data-role="header">
+         <h1>Upload Photo</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-add-dogupload">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <input type="hidden" id="dog-upload-filename">
+         <label class="image-picker replace">
+           <input type="file" data-role="none">
+         </label>
+      </div>
+    </section> -->
+
+
 
 
 <script type="text/template" id="footer-template">

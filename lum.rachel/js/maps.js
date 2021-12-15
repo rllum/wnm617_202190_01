@@ -9,6 +9,7 @@ const makeMap = async(target="",center={ lat: 37.786437, lng: -122.399650 }) => 
     			center:center,
     			zoom: 12,
     			disableDefaultUI:true
+    			
 			}),
 			"infoWindow": new google.maps.InfoWindow({content:''})
 		});
@@ -78,6 +79,8 @@ const setMapBounds = (mapEl,mapLocs) => {
 		map.fitBounds(bounds);
 	}
 }
+
+
 
 
 

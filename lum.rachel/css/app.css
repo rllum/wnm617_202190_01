@@ -23,6 +23,7 @@
 
 body{
 	font-family: var(--font-sans);
+	background-color: #f3faff;
 }
 
 /*CORE ELEMENTS*/
@@ -320,6 +321,13 @@ a{
 	align-self: center;
 }
 
+.join-logo {
+	margin-top: 5em;
+	width: 50%;
+	height: auto;
+	align-self: center;
+}
+
 /*NAV*/
 
 .nav{
@@ -373,7 +381,7 @@ a{
 /*CIRCLE BUTTON*/
 .btn-circle{
 	display: inline-block;
-	background-color: var(--color-main-dark);
+	background-color: var(--color-accent-light);
 	color: white;
 	width: 3rem;
 	height: 3rem;
@@ -497,7 +505,7 @@ a{
 }
 
 .nav-icon-set li.active{
-	background-color: var(--color-accent-light);
+	background-color: var(--color-main-light);
 }
 
 .nav-icon{
@@ -525,9 +533,15 @@ a{
 	padding: 1em;
 }
 
-.dog-list-item~.dog-list-item{
+.dog-list-item{
 	margin-top: 1em;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+	border-radius: 0.5em;
+	overflow: hidden;
+	font-weight: normal;
+	background-color: white;
 }
+
 
 .dog-list-item-image img{
 	width: 100px;
@@ -536,12 +550,12 @@ a{
 	vertical-align: middle;
 }
 
-.dog-list-item a{
+/*.dog-list-item a{
 	box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 	border-radius: 1em;
 	overflow: hidden;
 	font-weight: normal;
-}
+}*/
 
 .dog-list-item-name{
 	font-size: 1.5em;
@@ -561,6 +575,7 @@ a{
 .dog-profile-top{
 	flex: none;
 	height: 40vh;
+	position: relative;
 }
 .dog-profile-middle{
 	background-color: white;
@@ -578,10 +593,13 @@ a{
    display: block;
 }
 .dog-profile-middle li.active{
-	background-color: var(--color-accent-light);
+	background-color: var(--color-main-medium);
 }
 
 
+.dog-popup-name{
+	color: var(--color-main-light);
+}
 
 .dog-popup-image,
 .dog-popup-body {
@@ -635,7 +653,53 @@ a{
 }*/
 
 
+.image-picker.replace{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: contain;
+}
+
+.image-picker.replace input{
+	display: none;
+}
 
 
+.user-profile-image img{
+	width: 100%;
+	height: 40vh;
+	object-fit: cover;
+}
+
+.user-profile-info{
+	padding: 1em;
+	text-align: center;
+}
+
+.user-settings{
+	padding-top: 5em;
+	text-decoration: underline;
+}
+
+.thumbnail {
+  position:relative;
+  display:inline-block;
+  width:6em;
+  height:6em;
+  border-radius:0.6em;
+  border:0.25em solid white;
+  vertical-align:middle;
+  box-shadow:0 0.15em 0.35em 0.1em rgba(0,0,0,0.2);
+  margin:0.5em;
+  
+  background-position:center;
+  background-size:cover;
+}
+.thumbnail input {
+   display: none;
+}
 
 

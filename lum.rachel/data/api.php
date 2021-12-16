@@ -139,11 +139,11 @@ function makeStatment($data) {
 
 		case "insert_user":
 			$r = makeQuery($c,"SELECT id FROM `track_users` WHERE `username` = ? OR `email` = ?",$p);
-			if(count($r['result'])) return ["error"=>"Username or Email already exists"];
+			// if(count($r['result'])) return ["error"=>"Username or Email already exists"];
 
 			$r = makeQuery($c, "INSERT INTO 
 				`track_users`
-				(`username`, `email`, `password`, `img`, `date_create())
+				(`username`, `email`, `password`, `img`, `date_create`)
 				VALUES 
 				(?,?, md5(?),'http://via.placeholder.com/400/?text=USER', NOW())
 				",$p,false);

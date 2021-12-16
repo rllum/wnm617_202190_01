@@ -51,7 +51,6 @@ const userEditForm = async() => {
 }
 
 
-
 const checkSignup = async () => {
    let email = $("#signup-email").val();
    let username = $("#signup-username").val();
@@ -70,8 +69,9 @@ const checkSignup = async () => {
 
    sessionStorage.userId = r.id;
 
-   $.mobile.navigate("#page-signup2");
+   $.mobile.navigate("#page-list");
 }
+
 
 
 
